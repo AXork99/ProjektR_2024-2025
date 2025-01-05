@@ -1,0 +1,6410 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6803846,
+                    45.6917728
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 105
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7068268,
+                    45.6815919
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 634
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6910422,
+                    45.6930039
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 795
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6697648,
+                    45.7051124
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 83
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6763501,
+                    45.71055519999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 89
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7001965,
+                    45.7157103
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 288
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.647464,
+                    45.6936982
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 284
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6388114,
+                    45.7068331
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 319
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.656148,
+                    45.6896257
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 133
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6687489,
+                    45.6954949
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 258
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6522872,
+                    45.7270546
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 256
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6387738,
+                    45.7257982
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 164
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6274009,
+                    45.7241848
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 113
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6571742,
+                    45.72996610000001
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 69
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6233303,
+                    45.6944514
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 313
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6150744,
+                    45.6735072
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 99
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6465208,
+                    45.6519418
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 477
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6723345,
+                    45.6500316
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 112
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7315138,
+                    45.6159543
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 18
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5500844,
+                    45.6794411
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 77
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5788404,
+                    45.6744436
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 328
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5521188,
+                    45.7030116
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 124
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5423724,
+                    45.703151
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 55
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7181189,
+                    45.644489
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 74
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5879814,
+                    45.700639
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 158
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5731817,
+                    45.7060734
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 78
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5806237,
+                    45.7128526
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 75
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.598594,
+                    45.6972347
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 104
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5894118,
+                    45.7182021
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 124
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5926842,
+                    45.7158835
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 121
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.60017,
+                    45.7243439
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 144
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6194006,
+                    45.7235832
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 77
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6061138,
+                    45.7245815
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 76
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5812568,
+                    45.6148895
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 297
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5716385,
+                    45.63200639999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 128
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6009782,
+                    45.6252044
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 315
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.569798,
+                    45.6179199
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 263
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6386467,
+                    45.6284298
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 445
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6067537,
+                    45.63365470000001
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 201
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6195586,
+                    45.6450398
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 255
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6078022,
+                    45.6562258
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 332
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6422604,
+                    45.6631407
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 447
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6507903,
+                    45.6717716
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 688
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6437812,
+                    45.6687976
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 417
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6507903,
+                    45.6717716
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 405
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.650454,
+                    45.6709535
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 142
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6480101,
+                    45.6724827
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 263
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6517759,
+                    45.67323160000001
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 485
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9778327,
+                    45.8081147
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 587
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6540896,
+                    45.6742977
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 674
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6526996,
+                    45.67474780000001
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 585
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7143779,
+                    45.83055909999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 220
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6589037,
+                    45.7638632
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 279
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7112158,
+                    45.8012021
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1242
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7112158,
+                    45.8012021
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 756
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6261407,
+                    45.7975039
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 48
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6069721,
+                    45.7977905
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 23
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.4908327,
+                    45.7891884
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 53
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7110481,
+                    45.8010928
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 50
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.4685137,
+                    45.7729158
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 29
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7450154,
+                    45.8284846
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 255
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6931985,
+                    45.7766088
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 321
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7531591,
+                    45.8084192
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 843
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7432961,
+                    45.7234847
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 219
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6774076,
+                    45.8082363
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 215
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7501288,
+                    45.8134878
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 387
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7490112,
+                    45.7438881
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 719
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7332997,
+                    45.8233634
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 475
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6515229,
+                    45.8250312
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 264
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6091951,
+                    45.8119694
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 54
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5983135,
+                    45.828249
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 60
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6195213,
+                    45.8244413
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 31
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7406486,
+                    45.8084557
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 763
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5797641,
+                    45.7733684
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 44
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7208556,
+                    45.7965763
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 769
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7153742,
+                    45.757237
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 212
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7011393,
+                    45.83436529999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 286
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7258983,
+                    45.764944
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 255
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.698627,
+                    45.8265301
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 824
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6888932,
+                    45.8278476
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 465
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7303137,
+                    45.7928192
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 531
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6219247,
+                    45.7537577
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 98
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6346957,
+                    45.7712921
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 76
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6117794,
+                    45.7705178
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 27
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5940517,
+                    45.7640777
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 16
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6745527,
+                    45.7576628
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 166
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7731467,
+                    45.8315968
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 177
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7621952,
+                    45.7704348
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 592
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5706546,
+                    45.7907543
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 83
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6721055,
+                    45.8170912
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 252
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7632816,
+                    45.7124462
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 441
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7563886,
+                    45.7089007
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 218
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.732912,
+                    45.7448714
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 119
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6866268,
+                    45.8341749
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 646
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7978522,
+                    45.738995
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 927
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6751472,
+                    45.7674838
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 508
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6751472,
+                    45.7674838
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 419
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7129161,
+                    45.8027806
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1564
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6998708,
+                    45.8187496
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1729
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7128767,
+                    45.8005429
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1443
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7200671,
+                    45.7947237
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1000
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6922446,
+                    45.8003943
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 753
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7198787,
+                    45.7991201
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1619
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.719286,
+                    45.7985976
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1007
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.713523,
+                    45.8110958
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 770
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7318021,
+                    45.8054309
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1013
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7278733,
+                    45.7981034
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1313
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7308659,
+                    45.7985984
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 995
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9740474,
+                    45.8092053
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1410
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7208159,
+                    45.835784
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 480
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6360206,
+                    45.7953171
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 156
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6506051,
+                    45.8085227
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 75
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6498388,
+                    45.7978779
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 68
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7565976,
+                    45.8327641
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 171
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6472132,
+                    45.788704
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 201
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7368711,
+                    45.7487523
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 279
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5049915,
+                    45.8113586
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 17
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5308663,
+                    45.81966740000001
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 37
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5683599,
+                    45.8382087
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 55
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7303137,
+                    45.7928192
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 509
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7646128,
+                    45.8269135
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 227
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6939053,
+                    45.8081672
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 314
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8104824,
+                    45.8068679
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1108
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8104824,
+                    45.8068679
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 891
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7825391,
+                    45.7926026
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1319
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8023021,
+                    45.7678319
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1381
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8023021,
+                    45.7678319
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 572
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7876138,
+                    45.7636756
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 667
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7755538,
+                    45.7966819
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1176
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7575903,
+                    45.7846431
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 162
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7805217,
+                    45.7790005
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 445
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8000306,
+                    45.7931659
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1046
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8000306,
+                    45.7931659
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 660
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8026638,
+                    45.8149674
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1025
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8053965,
+                    45.7896807
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 987
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8053965,
+                    45.7896807
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1140
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7937073,
+                    45.81216209999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1040
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7937073,
+                    45.81216209999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1357
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7937073,
+                    45.81216209999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1192
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9118753,
+                    45.7594955
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1370
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9118753,
+                    45.7594955
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1306
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9343535,
+                    45.7548687
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1234
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9343535,
+                    45.7548687
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1159
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9343535,
+                    45.7548687
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1201
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9577964,
+                    45.7425728
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 713
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    16.0039087,
+                    45.7311039
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 998
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8893276,
+                    45.744138
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 984
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8893276,
+                    45.744138
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1116
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8757712,
+                    45.7611988
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 855
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8757712,
+                    45.7611988
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 788
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9617397,
+                    45.7807276
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1323
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9617397,
+                    45.7807276
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1337
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9617397,
+                    45.7807276
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1355
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9518347,
+                    45.7751169
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 982
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9518347,
+                    45.7751169
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 954
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9518347,
+                    45.7751169
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 939
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8757712,
+                    45.7611988
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1021
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8757712,
+                    45.7611988
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 972
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8757712,
+                    45.7611988
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 989
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9757224,
+                    45.7322752
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 525
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9956589,
+                    45.7316765
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 961
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9956589,
+                    45.7316765
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 950
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.947739,
+                    45.768045
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1459
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.947739,
+                    45.768045
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1443
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.947739,
+                    45.768045
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1445
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9562152,
+                    45.7753756
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1151
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9562152,
+                    45.7753756
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1166
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9538042,
+                    45.7742521
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1028
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9538042,
+                    45.7742521
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1088
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9748238,
+                    45.7746973
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1242
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9748238,
+                    45.7746973
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1194
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9748238,
+                    45.7746973
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1166
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9748238,
+                    45.7746973
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1237
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9748238,
+                    45.7746973
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1249
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9748238,
+                    45.7746973
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1291
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9684017,
+                    45.754948
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1215
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9684017,
+                    45.754948
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1278
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9684017,
+                    45.754948
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1208
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9684017,
+                    45.754948
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1112
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9684017,
+                    45.754948
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1091
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9684017,
+                    45.754948
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1170
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9684017,
+                    45.754948
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1144
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9684017,
+                    45.754948
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1254
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9632866,
+                    45.7741748
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1004
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9632866,
+                    45.7741748
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1057
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9632866,
+                    45.7741748
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 991
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9632866,
+                    45.7741748
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 934
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9562435,
+                    45.7971385
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1188
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9562435,
+                    45.7971385
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1077
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9437786,
+                    45.80722859999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1260
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9437786,
+                    45.80722859999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1283
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9437786,
+                    45.80722859999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1320
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9279247,
+                    45.8024204
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1065
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9279247,
+                    45.8024204
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1007
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9279247,
+                    45.8024204
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1036
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9279247,
+                    45.8024204
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1045
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9279247,
+                    45.8024204
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 990
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9342057,
+                    45.7943986
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1261
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9342057,
+                    45.7943986
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1224
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9439758,
+                    45.8011955
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1105
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9439758,
+                    45.8011955
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1095
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9439758,
+                    45.8011955
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1176
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9397597,
+                    45.8024964
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1323
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9397597,
+                    45.8024964
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1323
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9397597,
+                    45.8024964
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1333
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9397597,
+                    45.8024964
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1343
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9176935,
+                    45.7974267
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1319
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9176935,
+                    45.7974267
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1345
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9176935,
+                    45.7974267
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1343
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9176935,
+                    45.7974267
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1381
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9176935,
+                    45.7974267
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1309
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9176935,
+                    45.7974267
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1256
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9549611,
+                    45.8014746
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1032
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9549611,
+                    45.8014746
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1190
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9549611,
+                    45.8014746
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1200
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9549611,
+                    45.8014746
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1204
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9549611,
+                    45.8014746
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1260
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9549611,
+                    45.8014746
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1258
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9549611,
+                    45.8014746
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1196
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9523411,
+                    45.798735
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1064
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9523411,
+                    45.798735
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1032
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9523411,
+                    45.798735
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1171
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9523411,
+                    45.798735
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1079
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9523411,
+                    45.798735
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1076
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9332494,
+                    45.7881595
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1129
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9332494,
+                    45.7881595
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1055
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9332494,
+                    45.7881595
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1137
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9332494,
+                    45.7881595
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1072
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9332494,
+                    45.7881595
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1067
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9332494,
+                    45.7881595
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1026
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9402446,
+                    45.7890002
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1224
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9402446,
+                    45.7890002
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1271
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9402446,
+                    45.7890002
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1196
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9402446,
+                    45.7890002
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1241
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9402446,
+                    45.7890002
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1207
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9402446,
+                    45.7890002
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1227
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9402446,
+                    45.7890002
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1319
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9294529,
+                    45.7865014
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1004
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9294529,
+                    45.7865014
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1163
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9241038,
+                    45.7869187
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1216
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9241038,
+                    45.7869187
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1262
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9241038,
+                    45.7869187
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1337
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9241038,
+                    45.7869187
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1231
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9241038,
+                    45.7869187
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1283
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9241038,
+                    45.7869187
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1266
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9501183,
+                    45.7934591
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 846
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9501183,
+                    45.7934591
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1303
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9501183,
+                    45.7934591
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1260
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9501183,
+                    45.7934591
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1288
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9501183,
+                    45.7934591
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1306
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9501183,
+                    45.7934591
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1247
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9461014,
+                    45.7888121
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 904
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9048304,
+                    45.7943625
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1176
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9048304,
+                    45.7943625
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1214
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9048304,
+                    45.7943625
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1310
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9048304,
+                    45.7943625
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1268
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9048304,
+                    45.7943625
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1182
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9048304,
+                    45.7943625
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1204
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9048304,
+                    45.7943625
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1212
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8978424,
+                    45.7938524
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 991
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8978424,
+                    45.7938524
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1092
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8978424,
+                    45.7938524
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 994
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9183657,
+                    45.7926881
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1240
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9183657,
+                    45.7926881
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1160
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9183657,
+                    45.7926881
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1200
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9183657,
+                    45.7926881
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1230
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9183657,
+                    45.7926881
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1232
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9183657,
+                    45.7926881
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1247
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9183657,
+                    45.7926881
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1198
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9027163,
+                    45.8066845
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1319
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.901665,
+                    45.8080339
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1260
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.901665,
+                    45.8080339
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1277
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.901665,
+                    45.8080339
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1259
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.901665,
+                    45.8080339
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1248
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.901665,
+                    45.8080339
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1292
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.981919,
+                    45.8150108
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1114
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.981919,
+                    45.8150108
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 906
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.981919,
+                    45.8150108
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 908
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8919382,
+                    45.81054830000001
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1251
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8919382,
+                    45.81054830000001
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1212
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8919382,
+                    45.81054830000001
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1238
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8919382,
+                    45.81054830000001
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1232
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8872293,
+                    45.81188359999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1085
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8872293,
+                    45.81188359999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1202
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.904587,
+                    45.79928659999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1049
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.904587,
+                    45.79928659999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1027
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.904587,
+                    45.79928659999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1080
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.904587,
+                    45.79928659999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1067
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.904587,
+                    45.79928659999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1037
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8989399,
+                    45.8012138
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1224
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8989399,
+                    45.8012138
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1189
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8989399,
+                    45.8012138
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1228
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8989399,
+                    45.8012138
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1268
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8989399,
+                    45.8012138
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1309
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8964329,
+                    45.8051897
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1153
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9038303,
+                    45.803675
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 944
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9038303,
+                    45.803675
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 926
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9038303,
+                    45.803675
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 953
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8939468,
+                    45.804135
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1186
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8939468,
+                    45.804135
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1398
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8939468,
+                    45.804135
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1238
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8939468,
+                    45.804135
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1267
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9109525,
+                    45.8081208
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1111
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9109525,
+                    45.8081208
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1184
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9109525,
+                    45.8081208
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1066
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9109525,
+                    45.8081208
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1113
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9081701,
+                    45.81071679999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 971
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9081701,
+                    45.81071679999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 883
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8719149,
+                    45.81835969999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1257
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8719149,
+                    45.81835969999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1248
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8719149,
+                    45.81835969999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1343
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8756462,
+                    45.81524599999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 889
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8756462,
+                    45.81524599999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 884
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8770338,
+                    45.8144068
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1233
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9042098,
+                    45.8326703
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1199
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9042098,
+                    45.8326703
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1194
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9042098,
+                    45.8326703
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1176
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8699983,
+                    45.83275020000001
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1442
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8699983,
+                    45.83275020000001
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1373
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8830005,
+                    45.81921819999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1456
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8901651,
+                    45.8179398
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1192
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8901651,
+                    45.8179398
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1243
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8901651,
+                    45.8179398
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1236
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8817341,
+                    45.8222797
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1182
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8817341,
+                    45.8222797
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1017
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8699983,
+                    45.83275020000001
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 619
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8469984,
+                    45.8270804
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 494
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8346366,
+                    45.8175634
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1028
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8346366,
+                    45.8175634
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 980
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8346366,
+                    45.8175634
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1027
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8346366,
+                    45.8175634
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1025
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8854545,
+                    45.8162096
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1315
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8854545,
+                    45.8162096
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1378
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8830005,
+                    45.81921819999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1468
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8830005,
+                    45.81921819999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1353
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9054819,
+                    45.8142006
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1318
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9054819,
+                    45.8142006
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1241
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9054819,
+                    45.8142006
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1251
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9054819,
+                    45.8142006
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1289
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9054819,
+                    45.8142006
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1296
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9107871,
+                    45.7274907
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1203
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9107871,
+                    45.7274907
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1187
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9107871,
+                    45.7274907
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1153
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8865078,
+                    45.7312919
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 636
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.981919,
+                    45.8150108
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 809
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9340173,
+                    45.6244241
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 59
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9852324,
+                    45.8133165
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1217
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8524236,
+                    45.6866652
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 774
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8724515,
+                    45.6722861
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 779
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8362852,
+                    45.6881353
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 278
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9217583,
+                    45.6307245
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 176
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9421551,
+                    45.716044
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1110
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9181783,
+                    45.7100506
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 485
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.9289196,
+                    45.6673909
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 450
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7910854,
+                    45.9452205
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 432
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8007295,
+                    45.9035679
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 592
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8056171,
+                    45.9061278
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 985
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7778017,
+                    45.8617229
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 688
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8337895,
+                    45.8497503
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 776
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8457988,
+                    45.8722321
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1260
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8008569,
+                    45.8711598
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1120
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8008569,
+                    45.8711598
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1287
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7949745,
+                    45.8664127
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1002
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7949745,
+                    45.8664127
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1038
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7943191,
+                    45.8672213
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1011
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7943191,
+                    45.8672213
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 890
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7991651,
+                    45.86385800000001
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1089
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.800434,
+                    45.8616183
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 952
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8030378,
+                    45.8602402
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 853
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8030378,
+                    45.8602402
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 961
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.806049,
+                    45.8579607
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1153
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8053555,
+                    45.8572006
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 783
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8049002,
+                    45.8576828
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1134
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8051542,
+                    45.8562199
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1208
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7953488,
+                    45.8569974
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1217
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8138891,
+                    45.8493729
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 985
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7606204,
+                    45.8680128
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1260
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7606204,
+                    45.8680128
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1286
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.765794,
+                    45.8623468
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 623
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7405469,
+                    45.8785932
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1240
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7328313,
+                    45.8718717
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 617
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7489086,
+                    45.8652634
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1063
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7069343,
+                    45.8723493
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 533
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7126731,
+                    45.8845578
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1478
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6861366,
+                    45.89273410000001
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 225
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6932153,
+                    45.883298
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 474
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.6956308,
+                    45.8929566
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 617
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.682927,
+                    45.9038043
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 393
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7153394,
+                    45.7306675
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 254
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7229281,
+                    45.7392553
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 60
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7052327,
+                    45.7389459
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 165
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7621743,
+                    45.66798680000001
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 285
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7456618,
+                    45.6760473
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 514
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7193396,
+                    45.6899011
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 218
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.775504,
+                    45.6765669
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 115
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7436829,
+                    45.692256
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1036
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7436829,
+                    45.692256
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 573
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7300833,
+                    45.7144649
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 92
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7873132,
+                    45.65677549999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 277
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7873132,
+                    45.65677549999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 255
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8203601,
+                    45.6599997
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 103
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7889604,
+                    45.6731364
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 67
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7054782,
+                    45.725889
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 309
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.7200093,
+                    45.7092041
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 137
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5399647,
+                    45.6363054
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 156
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5220494,
+                    45.6246328
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 72
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5243723,
+                    45.6437706
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 214
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5179551250559,
+                    45.6515670283544
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 237
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5167325974887,
+                    45.6545187532866
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 272
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.4883781,
+                    45.6569067
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 111
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5313112,
+                    45.6686789
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 184
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5176431,
+                    45.6537064
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 211
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5228128,
+                    45.6739727
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 319
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.4823729,
+                    45.6793141
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 106
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.4764951,
+                    45.6689386
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 48
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.462877,
+                    45.6845682
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 26
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8381378,
+                    45.7555819
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 1467
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.847383,
+                    45.7517986
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 829
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.8574035,
+                    45.7377423
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 957
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.4726255,
+                    45.698985
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 154
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.4319758,
+                    45.7314124
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 60
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.4671969,
+                    45.7335325
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 64
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.4727485,
+                    45.75931560000001
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 77
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.4991338,
+                    45.7786974
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 46
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.432207,
+                    45.7103355
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 135
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.3816593,
+                    45.7506042
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 100
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.4000813,
+                    45.71834519999999
+                ]
+            },
+            "properties": {
+                "Rbr IJ": 6,
+                "Naziv izborne jedinice": "VI. IZBORNA JEDINICA",
+                "Ukupno birača": 22
+            }
+        }
+    ]
+}

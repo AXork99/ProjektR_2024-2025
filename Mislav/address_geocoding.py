@@ -87,8 +87,8 @@ def geocode_excel(input_excel, output_excel, api_key):
     return problematic_rows
 
 # Process multiple files
-api_key = 'AIzaSyDuedH5d7vV6PhR2pWe7sKbcbh3ZQqez88'
-input_files = glob.glob('02_*.xlsx')
+api_key = 'YOUR_API_KEY'
+input_files = glob.glob('XLSX_data/02_*.xlsx')
 
 # Create a list to store all problematic rows
 all_problematic_rows = []
