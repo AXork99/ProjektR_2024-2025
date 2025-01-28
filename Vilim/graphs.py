@@ -6,10 +6,10 @@ import random
 
 sample = nx.read_graphml("sample_map.graphml")
 
-def get_sample(name: str) -> nx.Graph:
+def get_map(name: str) -> nx.Graph:
     return nx.read_graphml(name + ".graphml")
 
-def create_sample_map(max_population: int = 2000, min_population: int = 10, num_bm: int = 101, name: str = "sample_map"):
+def create_sample_map(num_bm: int, max_population: int = 2000, min_population: int = 10, name: str = "sample_map"):
     def _create_sample_map_r(num_nodes: int) -> nx.Graph:
         if num_nodes <= 3:
             G = nx.complete_graph(num_nodes)
@@ -37,7 +37,7 @@ def create_sample_map(max_population: int = 2000, min_population: int = 10, num_
     nx.write_graphml(sample_map, name + ".graphml")
 
 def print_map(G, label = None, color: str | dict = "color", layout = nx.planar_layout):
-    labels = {node: G.nodes[node][label] for node in G.nodes} if label else None
+    labels = {node: f"{G.nodes[node]["part"]}:{G.nodes[node][label]}" for node in G.nodes} if label else None
     pos = layout(G)
     
     node_colors = None
@@ -67,4 +67,4 @@ def init_partition(G: nx.Graph, parts: int, by: str, colormap = cm.tab20) -> nx.
 
     return G
 
-create_sample_map()
+create_sample_map(17)
