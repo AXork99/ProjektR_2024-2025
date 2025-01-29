@@ -3,11 +3,20 @@ import pymetis as pm
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import random
+import subprocess
+import time
 
-sample = nx.read_graphml("sample_map.graphml")
+root_dir = "C:/Users/Korisnik/Desktop/ProjektR/graph/ProjektR_2024-2025"
+
+# sample_map
 
 def get_map(name: str) -> nx.Graph:
     return nx.read_graphml(name + ".graphml")
+
+sample = get_map("sample_map")
+
+def save_map(G: nx.Graph, name: str = "map"):
+    nx.write_graphml(G, name + ".graphml")
 
 def create_sample_map(num_bm: int, max_population: int = 2000, min_population: int = 10, name: str = "sample_map"):
     def _create_sample_map_r(num_nodes: int) -> nx.Graph:
@@ -18,8 +27,8 @@ def create_sample_map(num_bm: int, max_population: int = 2000, min_population: i
             return G
         
         G1 = _create_sample_map_r(num_nodes // 2)
-        G2 = _create_sample_map_r(num_nodes - num_nodes // 2)
         N1 = len(G1.nodes)
+        G2 = _create_sample_map_r(num_nodes - num_nodes // 2)
         N2 = len(G2.nodes)
         
         G2 = nx.relabel_nodes(G2, {i: i + N1 for i in range(N2)})
@@ -34,10 +43,114 @@ def create_sample_map(num_bm: int, max_population: int = 2000, min_population: i
         return G
     
     sample_map = _create_sample_map_r(num_bm)
-    nx.write_graphml(sample_map, name + ".graphml")
+    
+    save_map(sample_map, name)
 
-def print_map(G, label = None, color: str | dict = "color", layout = nx.planar_layout):
-    labels = {node: f"{G.nodes[node]["part"]}:{G.nodes[node][label]}" for node in G.nodes} if label else None
+# KaHIP:
+
+KaHIP_dir = "C:/Users/Korisnik/Desktop/ProjektR/graph/ProjektR_2024-2025/Vilim/KaHIP/deploy"
+
+def export_graph_to_KaHIP(G, filename):
+    if not nx.is_connected(G):
+        raise ValueError("The graph must be connected for KaHIP.")
+
+    node_map = {node: idx + 1 for idx, node in enumerate(G.nodes())}
+
+    with open(KaHIP_dir + "/" + filename, "w") as f:
+        num_nodes = G.number_of_nodes()
+        num_edges = G.number_of_edges()
+
+        # First line: Number of nodes and number of edges
+        f.write(f"{num_nodes} {num_edges} 10\n")
+
+        # Write adjacency list
+        for node, data in G.nodes(data = True):
+            neighbors = [node_map[n] for n in G.neighbors(node)]  # Convert to 1-based indexing
+            f.write(f"{data["population"]} {' '.join(map(str, neighbors))}\n")
+
+    print(f"Graph successfully exported")
+
+def KaHIP(command: str, *args: str, **kwargs: str):
+    
+    for key, value in kwargs.items():
+        if (key == "output_filename"):
+            value = "../../../" + value
+        args += (f"--{key}={value}",)
+    
+    full_command = f"wsl ./{command} {' '.join(args)}"
+    print(f"Running command: {full_command}")
+    
+    try:
+        result = subprocess.run(
+            full_command, 
+            cwd=KaHIP_dir,
+            capture_output=True,
+            text=True,
+            shell=True,
+            timeout=60,
+            errors=""
+        )
+        print(f"Command output: {result.stdout}")
+        print(f"Command error: {result.stderr}")
+        return result
+    except subprocess.TimeoutExpired:
+        print("The command timed out.")
+        return ""
+
+def partition_graph(G: nx.Graph, k: int, partition: list[int] | str, label: str = "k", colormap = cm.tab20):
+    if (isinstance(partition, str)):
+        parts = []
+        with open(partition, "r") as f:
+            parts = [int(x) for x in f.readlines()]    
+        partition = parts
+    
+    colors = [colormap(i / k) for i in range(k)] if colormap else None
+    
+    for i, node in enumerate(G.nodes):
+        G.nodes[node][label] = partition[i]
+        if (colors): 
+            G.nodes[node]['color'] = colors[partition[i]]
+
+    return G
+   
+def KaFFPa(G: nx.Graph, k: int, check_format: bool = True, name: str = "graph.graph", config: str = "eco", imbalance: int = 5, out: str = "partition.txt") -> nx.Graph:
+    export_graph_to_KaHIP(G, name)
+    
+    if (check_format):
+        print("Checking Graph format...")
+        print(KaHIP("graphchecker", name).stdout)
+
+    print(
+        KaHIP(
+            "kaffpa", 
+            name, 
+            k=k, 
+            preconfiguration=config, 
+            imbalance=imbalance,
+            output_filename=out
+        )
+        .stdout
+    )
+    
+    partition_graph(G, k, out)
+    
+    return G
+
+# METIS: 
+ 
+def metis_partition(G: nx.Graph, k: int, by: str, label: str = "k", colormap = cm.tab20) -> nx.Graph:
+    node_map = {node: idx for idx, node in enumerate(G.nodes)}
+    adjacency_list = [list(map(node_map.get, G.neighbors(node))) for node in G.nodes]
+    weights = [G.nodes[node][by] for node in G.nodes]
+
+    (_, initial_partition) = pm.part_graph(k, adjacency=adjacency_list, vweights=weights)
+    
+    return partition_graph(G, k, initial_partition, label, colormap)
+
+# General:
+
+def print_map(G, label = None, color: str | dict = None, layout = nx.planar_layout):
+    labels = {node: f"{G.nodes[node]['part']}:{G.nodes[node][label]}" for node in G.nodes} if label else None
     pos = layout(G)
     
     node_colors = None
@@ -50,21 +163,4 @@ def print_map(G, label = None, color: str | dict = "color", layout = nx.planar_l
     nx.draw_networkx_labels(G, pos, labels=labels, font_size=8)
     
     plt.show()
-    
-def init_partition(G: nx.Graph, parts: int, by: str, colormap = cm.tab20) -> nx.Graph:
-    node_map = {node: idx for idx, node in enumerate(G.nodes)}
-    adjacency_list = [list(map(node_map.get, G.neighbors(node))) for node in G.nodes]
-    weights = [G.nodes[node][by] for node in G.nodes]
 
-    (_, initial_partition) = pm.part_graph(parts, adjacency=adjacency_list, vweights=weights)
-    
-    colors = [colormap(i / parts) for i in range(parts)] if colormap else None
-    
-    for node in G.nodes:
-        G.nodes[node]['part'] = initial_partition[node_map[node]]
-        if (colors): 
-            G.nodes[node]['color'] = colors[initial_partition[node_map[node]]]
-
-    return G
-
-create_sample_map(17)

@@ -1,11 +1,10 @@
-import graphs
+import graphs as g
+from graphs import sample as G
 
-from graphs import sample
-
-graphs.print_map(
-    graphs.init_partition(sample, 7, by = "population"),	 
-    label="population"
+g.KaFFPa(
+    G, 
+    k=144,
+    check_format=False
 )
 
-for node, data in sample.nodes(data=True):
-    print(node, data["part"])
+g.print_map(G, color="color")
