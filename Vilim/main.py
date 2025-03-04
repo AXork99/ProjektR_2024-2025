@@ -1,10 +1,12 @@
 import graphs as g
-from graphs import sample as G
+
+G1 = g.get_map("sample_map")
 
 g.KaFFPa(
-    G, 
+    G1, 
     k=144,
-    check_format=False
+    check_format=False,
+    imbalance=3
 )
 
-g.print_map(G, color="color")
+g.print_map(G1, color="color", label="population")
