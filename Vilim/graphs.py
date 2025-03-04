@@ -1,25 +1,23 @@
 import networkx as nx
-import pymetis as pm
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import random
 import subprocess
 import distinctipy as distinct
 import time
+import os
 from utils import get_dir
-
-root = get_dir(__file__)
 
 # KaHIP:
 
-KaHIP_dir = root + "KaHIP/deploy/"
+KaHIP_dir = os.getcwd() + "/Vilim/KaHIP/"
 
 def export_graph_to_KaHIP(G, filename):
     if not nx.is_connected(G):
-        raise ValueError("The graph must be connected for KaHIP.")
+        raise ValueError("The graph must be connected")
 
     node_map = {node: idx + 1 for idx, node in enumerate(G.nodes())}
-
+    
     with open(KaHIP_dir + filename, "w") as f:
         num_nodes = G.number_of_nodes()
         num_edges = G.number_of_edges()
@@ -39,7 +37,7 @@ def KaHIP(command: str, *args: str, **kwargs: str):
     for key, value in kwargs.items():
         args += (f"--{key}={value}",)
     
-    full_command = f"wsl ./{command} {' '.join(args)}"
+    full_command = f"./{command} {' '.join(args)}"
     print(f"Running command: {full_command}")
     
     try:
@@ -100,17 +98,6 @@ def KaFFPa(G: nx.Graph, k: int, check_format: bool = True, name: str = "graph.gr
     partition_graph(G, k, out)
     
     return G
-
-# METIS: 
- 
-def metis_partition(G: nx.Graph, k: int, by: str, label: str = "k", colormap = None) -> nx.Graph:
-    node_map = {node: idx for idx, node in enumerate(G.nodes)}
-    adjacency_list = [list(map(node_map.get, G.neighbors(node))) for node in G.nodes]
-    weights = [G.nodes[node][by] for node in G.nodes]
-
-    (_, initial_partition) = pm.part_graph(k, adjacency=adjacency_list, vweights=weights)
-    
-    return partition_graph(G, k, initial_partition, label, colormap)
 
 # General:
 
