@@ -52,6 +52,7 @@ def print_map(G, label = None, color: str | dict = "color", layout = nx.planar_l
     plt.show()
     
 def init_partition(G: nx.Graph, parts: int, by: str, colormap = cm.tab20) -> nx.Graph:
+    
     node_map = {node: idx for idx, node in enumerate(G.nodes)}
     adjacency_list = [list(map(node_map.get, G.neighbors(node))) for node in G.nodes]
     weights = [G.nodes[node][by] for node in G.nodes]
@@ -66,5 +67,3 @@ def init_partition(G: nx.Graph, parts: int, by: str, colormap = cm.tab20) -> nx.
             G.nodes[node]['color'] = colors[initial_partition[node_map[node]]]
 
     return G
-
-create_sample_map(17)
