@@ -102,40 +102,10 @@ def KaFFPa(G: nx.Graph, k: int, check_format: bool = True, name: str = "graph.gr
 # General:
 
 def get_map(name: str) -> nx.Graph:
-    return nx.read_graphml(name + ".graphml")
+    return nx.read_graphml(name)
 
 def save_map(G: nx.Graph, name: str = "map"):
     nx.write_graphml(G, name + ".graphml")
-
-def create_sample_map(num_bm: int, max_population: int = 2000, min_population: int = 10, name: str = "sample_map") -> nx.Graph:
-    def _create_sample_map_r(num_nodes: int) -> nx.Graph:
-        if num_nodes <= 3:
-            G = nx.complete_graph(num_nodes)
-            for n in G.nodes:
-                G.nodes[n]['population'] = random.randint(min_population, max_population)
-            return G
-        
-        G1 = _create_sample_map_r(num_nodes // 2)
-        N1 = len(G1.nodes)
-        G2 = _create_sample_map_r(num_nodes - num_nodes // 2)
-        N2 = len(G2.nodes)
-        
-        G2 = nx.relabel_nodes(G2, {i: i + N1 for i in range(N2)})
-        G = nx.compose(G1, G2)
-        
-        for i in range(min(N1, N2)):
-            n2 = i + N1
-            n1 = i
-            G.add_edge(n1, n2)
-            if not nx.check_planarity(G)[0]:
-                G.remove_edge(n1, n2)
-        return G
-    
-    sample_map = _create_sample_map_r(num_bm)
-    
-    save_map(sample_map, name)
-    return sample_map
-
 
 def print_map(G, label = None, color: str | dict = None, layout = nx.planar_layout):
     labels = {node: f"{G.nodes[node]['k']}:{G.nodes[node][label]}" for node in G.nodes} if label else None
