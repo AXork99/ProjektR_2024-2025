@@ -50,14 +50,13 @@ def bisect(G, key: str, nblocks: int, imbalance: float = 0.03, seed: int = 0, su
     N = len(G.nodes)
     M = sum(map(lambda g: len(g[1]), G.adjacency()))
 
-    print(N, M)
+    # print(N, M)
     
     # # set mode 
     # # const int FAST          = 0;
     # #const int ECO            = 1;
     # #const int STRONG         = 2;
 
-    key            = "Ukupno birača"
     xadj           = [0] * (N + 1)
     adjncy         = [0] * M
     vwgt           = [0] * N
@@ -78,20 +77,30 @@ def bisect(G, key: str, nblocks: int, imbalance: float = 0.03, seed: int = 0, su
         adjncy[xadj[n1] : p], adjcwgt[xadj[n1] : p] = zip(*[(int(n2), int(args["length"]*1000000)) for n2, args in neighbors.items()])
         vwgt[n1] = G.nodes[node][key]
 
-    print(xadj[N])
+    # print(xadj[N])
 
     edgecut, blocks = kahip.kaffpa(vwgt, xadj, adjcwgt, 
                                 adjncy,  nblocks, imbalance, 
                                 supress_output, seed, mode)
 
-    partition_graph(G, nblocks, blocks)
+    # partition_graph(G, nblocks, blocks)
+    
+    partition = [0] * nblocks
+
+    for n, data in G.nodes(data = True):
+        partition[blocks[int(n)]] += data[key]
+
+    avg = sum(map(lambda d: d[1][key], G.nodes(data = True))) / nblocks
+    # print(avg)
+    
+    err = list(map(lambda n: abs(partition[n] - avg) / avg * 100, range(nblocks)))
 
     # print(edgecut)
     # print(blocks)
 
     # g.print_map(G1, color="color", label=key)
     
-    return (edgecut, blocks)
+    return (edgecut, blocks, err)
 
 
 # DEPRECATED:
