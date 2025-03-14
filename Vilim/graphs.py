@@ -45,7 +45,7 @@ def print_map(G, label = None, color: str | dict = None, layout = nx.planar_layo
     
     plt.show()
 
-def bisect(G, key: str, nblocks: int, imbalance: float = 0.03, seed: int = 0, supress_output: int = 0, mode: int = 1):
+def bisect(G, nkey: str, ekey: str, nblocks: int, imbalance: float = 0.03, seed: int = 0, supress_output: int = 0, mode: int = 1):
     
     N = len(G.nodes)
     M = sum(map(lambda g: len(g[1]), G.adjacency()))
@@ -74,8 +74,8 @@ def bisect(G, key: str, nblocks: int, imbalance: float = 0.03, seed: int = 0, su
         xadj[n1] = p
         p += len(neighbors)
         xadj[n1 + 1] = p
-        adjncy[xadj[n1] : p], adjcwgt[xadj[n1] : p] = zip(*[(int(n2), int(args["length"]*1000000)) for n2, args in neighbors.items()])
-        vwgt[n1] = G.nodes[node][key]
+        adjncy[xadj[n1] : p], adjcwgt[xadj[n1] : p] = zip(*[(int(n2), int(args[ekey] * 1000000)) for n2, args in neighbors.items()])
+        vwgt[n1] = G.nodes[node][nkey]
 
     # print(xadj[N])
 
@@ -88,9 +88,9 @@ def bisect(G, key: str, nblocks: int, imbalance: float = 0.03, seed: int = 0, su
     partition = [0] * nblocks
 
     for n, data in G.nodes(data = True):
-        partition[blocks[int(n)]] += data[key]
+        partition[blocks[int(n)]] += data[nkey]
 
-    avg = sum(map(lambda d: d[1][key], G.nodes(data = True))) / nblocks
+    avg = sum(map(lambda d: d[1][nkey], G.nodes(data = True))) / nblocks
     # print(avg)
     
     err = list(map(lambda n: abs(partition[n] - avg) / avg * 100, range(nblocks)))
@@ -98,7 +98,7 @@ def bisect(G, key: str, nblocks: int, imbalance: float = 0.03, seed: int = 0, su
     # print(edgecut)
     # print(blocks)
 
-    # g.print_map(G1, color="color", label=key)
+    # g.print_map(G1, color="color", label=nkey)
     
     return (edgecut, blocks, err)
 
@@ -109,7 +109,7 @@ def bisect(G, key: str, nblocks: int, imbalance: float = 0.03, seed: int = 0, su
 
 # KaHIP_dir = cwd + "/Vilim/KaHIP/"
 
-# def export_graph_to_KaHIP(G, filename, key):
+# def export_graph_to_KaHIP(G, filename, nkey):
 #     if not nx.is_connected(G):
 #         raise ValueError("The graph must be connected")
 
@@ -123,7 +123,7 @@ def bisect(G, key: str, nblocks: int, imbalance: float = 0.03, seed: int = 0, su
 
 #         for node, data in G.nodes(data = True):
 #             neighbors = [node_map[n] for n in G.neighbors(node)]
-#             f.write(f"{data[key]} {' '.join(map(str, neighbors))}\n")
+#             f.write(f"{data[nkey]} {' '.join(map(str, neighbors))}\n")
 
 #     print(f"Graph successfully exported")
 
