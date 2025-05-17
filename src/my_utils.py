@@ -7,6 +7,7 @@ import subprocess
 import numpy as np
 import networkx as nx
 import geopandas as gpd
+from numpy.random import Generator
 
 from shapely.geometry import Polygon, Point  
 
@@ -89,24 +90,6 @@ class KaHIP:
         except subprocess.CalledProcessError as e:
             print(f"Command {e.cmd} returned code {e.returncode}\nstderr: {e.stdout}\nstdout: {e.stderr}")
             raise e
-
-def is_connected(G, key: str=GROUP_KEY):
-    color_groups = {}
-    
-    for node, attrs in G.nodes(data=True):
-        color = attrs.get(key)
-        if not color:
-            raise KeyError(f"Graph isn't colored in {node}")
-        if color not in color_groups:
-            color_groups[color] = []
-        color_groups[color].append(node)
-    
-    color_connectivity = {}
-    
-    for color, nodes in color_groups.items():
-        color_connectivity[color] = nx.is_connected(G.subgraph(nodes))
-    
-    return 0 if all(color_connectivity.values()) else color_connectivity
 
 def get_midpoint(p1, p2, offset=None):
     """Calculate midpoint with optional perpendicular offset"""
@@ -274,20 +257,26 @@ class MetisFormat:
 def seeded(func):
     from functools import wraps
     from inspect import signature, Parameter
-    from numpy.random import Generator, PCG64
+    from numpy.random import PCG64
     
     sig = signature(func)
     params = list(sig.parameters.values())
     
-    if 'seed' not in sig.parameters:
-        params.append(
-            Parameter('seed', Parameter.KEYWORD_ONLY, default=None)
-        )
+    idx = next((i for i, p in enumerate(params) if p.kind == Parameter.VAR_KEYWORD), None)
     
-    if 'rng' not in sig.parameters:
-        params.append(
-            Parameter('rng', Parameter.KEYWORD_ONLY, default=None)
-        )
+    def insert_missing(kword):
+        if kword not in sig.parameters:
+            if idx is None:
+                params.append(
+                    Parameter(kword, Parameter.KEYWORD_ONLY, default=None)
+                )
+            else:
+                params.insert(idx,
+                    Parameter(kword, Parameter.KEYWORD_ONLY, default=None)
+                )
+    
+    insert_missing('seed')
+    insert_missing('rng')
     
     sig = sig.replace(parameters=params)
     
@@ -317,7 +306,7 @@ def seeded(func):
     
     wrapper.__signature__ = sig
     
-    return wrapper
+    return wrapper       
 
 if __name__ == "__main__":
     pass

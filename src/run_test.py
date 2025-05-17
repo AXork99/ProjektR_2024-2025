@@ -14,6 +14,27 @@ import os
 from display import display
 from kaffpa import kaffpa, read_partition
 
+def connect(G, part):
+    color_groups = {}
+    
+    for bm, ij in enumerate(part):
+        G.nodes[bm + 1][GROUP_KEY] = ij
+    
+    for node, attrs in G.nodes(data=True):
+        color = attrs.get(GROUP_KEY)
+        if not color:
+            raise KeyError(f"Graph isn't colored in {node}")
+        if color not in color_groups:
+            color_groups[color] = []
+        color_groups[color].append(node)
+    
+    color_connectivity = {}
+    
+    for color, nodes in color_groups.items():
+        color_connectivity[color] = nx.is_connected(G.subgraph(nodes))
+    
+    return 0 if all(color_connectivity.values()) else color_connectivity
+
 metis = MetisFormat()
 
 def init():
@@ -54,13 +75,11 @@ if args.k:
         config = args.config,
         imbalance=args.imbalance,
         tl=args.timeout
-        # partition='a.part' if not args.new else None,
     )
 else:
     part = read_partition()
 
-for bm, ij in enumerate(part):
-    G.nodes[bm + 1][GROUP_KEY] = ij
+connect(G, part)
 
 display(
     G, 

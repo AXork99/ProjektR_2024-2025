@@ -122,5 +122,38 @@ if __name__ == "__main__":
 
     with open("partition", 'w') as f:
             for b in blocks:
-                f.write(str(b) + "\n")
-                
+                f.write(str(b) + "\n")       
+        
+@seeded
+def make_delunay(points: int | list, seed = None, attrs = None):
+    from scipy.spatial import Delaunay
+    
+    if isinstance(points, int):
+        points = get_random_points(points, attrs=attrs, seed=seed)
+    
+    simplices = Delaunay(points).simplices
+    
+    G_dual = nx.Graph()
+    
+    G_dual.add_nodes_from(
+        (i + 1, {
+            LONGITUDE : (center := np.mean(poly, axis=0))[0],
+            LATITUDE : center[1],
+            GEOMETRY_KEY : Polygon(poly)
+        })
+        for i, poly in enumerate(points[simplices])
+    )
+    
+    edge_map = defaultdict(list)
+    
+    edges = np.sort(simplices[:,[0,1,1,2,2,0]].reshape(-1,2), axis=1)
+    for i, edge in enumerate(edges):
+        edge_map[tuple(edge)].append(i // 3)  # Integer division maps edges back to simplices
+    
+    G_dual.add_edges_from(
+        (pair[0], pair[1], {EDGE_ATTR: np.linalg.norm(points[p1] - points[p2])})
+        for (p1, p2), pair in edge_map.items()
+        if len(pair) == 2
+    )
+    
+    return G_dual

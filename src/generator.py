@@ -10,6 +10,77 @@ from collections import defaultdict
 
 from my_utils import NODE_ATTR, EDGE_ATTR, GEOMETRY_KEY, LONGITUDE, LATITUDE, seeded
 
+class Population:
+    def sample(self, n: int):
+        return [self.get() for _ in range(n)]
+    
+    def get(self):
+        pass
+    
+    @seeded
+    def __init__(self, seed=None, rng: Generator = None):
+        self.seed = seed
+        self.rng = rng
+    
+class NormalPopulation(Population):
+    def __init__(self, mean, var, seed=None):
+        super().__init__(seed)
+        self.mean = mean
+        self.var = \
+            var * np.identity(2) if isinstance(var, (int, float)) else \
+            [[var[0], 0], [0, var[1]]] if len(var) == 2 else \
+            var
+    
+    def get(self):
+        return tuple(self.rng.multivariate_normal(self.mean, self.var))
+    
+class UniformPopulation(Population):
+    def __init__(self, bbox = [0, 0, 1, 1], seed=None):
+        super().__init__(seed)
+        self.bbox = (bbox[0], bbox[2]), (bbox[1], bbox[3])
+    
+    def get(self):
+        return tuple(self.rng.uniform(*bounds) for bounds in self.bbox)
+            
+class MixedPopulation(Population):
+    def __init__(self, populations, weights: list[float] = None, seed=None):
+        if weights is None:
+            weights = np.ones(len(populations)) / len(populations)
+        else:
+            weights = np.asarray(weights)
+            weights = weights / sum(weights)
+            
+        super().__init__(seed)
+        
+        self.populations = [
+            params if isinstance(params, Population) else \
+            NormalPopulation(*params, seed=seed) if len(params) == 2 else \
+            UniformPopulation(*params, seed=seed)
+            for params in populations if isinstance(params, (Population, tuple))
+        ]
+        self.weights = weights
+
+    def get(self):
+        p : Population = self.rng.choice(self.populations, p=self.weights)
+        return p.get()     
+
+@seeded
+def randint(max_i = 10000, min_i = 1, seed = None, rng: Generator = None):
+    def randint_():
+        guess =  None
+        while guess is None or guess > max_i or guess < min_i:
+            guess = int(rng.normal((min_i + max_i) / 2, (max_i - min_i) / 4))
+        return guess
+    
+    return randint_
+
+@seeded
+def randfloat(min_f = 0, max_f = 1, seed = None, rng: Generator = None):
+    def randfloat_():
+        return rng.uniform(min_f, max_f)
+    
+    return randfloat_
+
 def get_color_map(num_colors, pattern: bool | list = None):    
     import distinctipy
     from itertools import cycle
@@ -24,80 +95,65 @@ def get_color_map(num_colors, pattern: bool | list = None):
     return list(zip(colors, hatches)) if hatches else colors
 
 @seeded
-def get_random_points(num: int, boundary: Polygon | tuple = None, rng: Generator = None, seed: int = None):
-    minx, maxx, miny, maxy = \
-        boundary.bounds if isinstance(boundary, Polygon) else \
-        boundary if boundary else np.array((-1, 1, -1, 1)) * num / 2
-        
-    points = set()
-    while len(points) < num:
-        random_point = tuple(rng.uniform(low=[minx, miny], high=[maxx, maxy], size=2))
-        if not isinstance(boundary, Polygon) or boundary.contains(random_point):
-            points.add(random_point)
+def make_random_points(num: int, boundary: Polygon | tuple = None, generator: Population = None, attrs: dict = {}, seed: int = None):
+    from shapely.geometry import box
+    
+    if not isinstance(boundary, Polygon):
+        boundary = box(*boundary) if boundary else box(-num / 2, -num / 2, num / 2, num / 2)
+    
+    if generator is None:
+        generator = (
+            UniformPopulation(
+                boundary.bounds,
+                seed=seed
+            )
+        )
+    
+    points = {}
+    while (N := len(points)) < num:
+        point = generator.get()
+        if boundary.contains(Point(*point)):
+            points[point] = {
+                attr : gen() for attr, gen in attrs.items()
+            }
     
     print(f"Generated {num} points (seed: {seed})")
-    return list(points)
+    
+    return [{
+        LONGITUDE: x,
+        LATITUDE: y,
+        **attrs
+    } for (x, y), attrs in points.items()]
 
 @seeded
-def make_delunay(points: int | list, seed: int = None):
-    from scipy.spatial import Delaunay
-    
-    if isinstance(points, int):
-        points = get_random_points(points, seed=seed)
-    
-    simplices = Delaunay(points).simplices
-    
-    G_dual = nx.Graph()
-    
-    G_dual.add_nodes_from(
-        (i + 1, {
-            LONGITUDE : (center := np.mean(poly, axis=0))[0],
-            LATITUDE : center[1],
-            GEOMETRY_KEY : Polygon(poly)
-        })
-        for i, poly in enumerate(points[simplices])
-    )
-    
-    edge_map = defaultdict(list)
-    
-    edges = np.sort(simplices[:,[0,1,1,2,2,0]].reshape(-1,2), axis=1)
-    for i, edge in enumerate(edges):
-        edge_map[tuple(edge)].append(i // 3)  # Integer division maps edges back to simplices
-    
-    G_dual.add_edges_from(
-        (pair[0], pair[1], {EDGE_ATTR: np.linalg.norm(points[p1] - points[p2])})
-        for (p1, p2), pair in edge_map.items()
-        if len(pair) == 2
-    )
-    
-    return G_dual
-
-@seeded
-def make_voronoi(points = int | list[Point], boundary: Polygon = None, seed: int = None):
+def make_voronoi(points = int | list[dict], seed = None, boundary: Polygon = None, **kwargs):
     from my_utils import make_convex, get_midpoint
     from scipy.spatial import Voronoi
     from shapely import box
     
     if isinstance(points, int):
-        points = get_random_points(points, boundary=boundary, seed=seed)
+        points = make_random_points(points, boundary=boundary, seed=seed, **kwargs)
     
-    points = np.asarray(points)
-        
+    ndoe_data = points
+    points = [(d[LONGITUDE], d[LATITUDE]) for d in points]
+    
     if not boundary:
         min_coords = np.min(points, axis=0)
         max_coords = np.max(points, axis=0)
         
         MAX = np.max(max_coords-min_coords, axis=0)
         PAD =  MAX / 20  # Bounding box padding
-        LINE = MAX * 20  # Length for extending infinite edges
         
         boundary = box(min_coords[0]-PAD, min_coords[1]-PAD,
                 max_coords[0]+PAD, max_coords[1]+PAD)
+    else:
+        boundary = box(*boundary)
 
     vor = Voronoi(points)
     G_dual = nx.Graph()
     
     MID = Point(np.average(points, axis=0))
+    LINE = max(boundary.bounds) * 20  # Length for extending infinite edges
     
     # Step 1: Handle infinite ridges
     infinite = defaultdict(list)
@@ -109,7 +165,7 @@ def make_voronoi(points = int | list[Point], boundary: Polygon = None, seed: int
             infinite[vor.point_region[p2]].append(mid)
     
     # Step 2: Create valid polygons for each cell
-    for i in range(len(points)):
+    for i, data in enumerate(ndoe_data):
         region_idx = vor.point_region[i]
         region = vor.regions[region_idx]
         
@@ -122,30 +178,23 @@ def make_voronoi(points = int | list[Point], boundary: Polygon = None, seed: int
         # Case 2: Infinite Voronoi cell
         else:
             finite_verts = [vor.vertices[v] for v in region if v != -1]
-            # print(i)
+            
             cell_poly = make_convex(finite_verts + infinite[region_idx]) or Polygon(finite_verts)
         
         # Final validation and clipping
         if cell_poly and cell_poly.is_valid:
-            clipped = cell_poly.intersection(boundary)
-            if not clipped.is_empty:
-                if clipped.geom_type == 'MultiPolygon':
-                    clipped = max(clipped.geoms, key=lambda p: p.area)
+            cell_poly = cell_poly.intersection(boundary)
+            if not cell_poly.is_empty:
+                if cell_poly.geom_type == 'MultiPolygon':
+                    print('Clipping issue:', region)
+                    cell_poly = max(cell_poly.geoms, key=lambda p: p.area)
                 
-                if clipped.geom_type == 'Polygon':
-                    cell_poly = clipped
-        else:
-            print('Bad region:', region)
+                if cell_poly.geom_type == 'Polygon':
+                    data[GEOMETRY_KEY] = cell_poly
+                    G_dual.add_node(i + 1, **data)
+                    continue
         
-        center = cell_poly.centroid
-        G_dual.add_node(
-            i + 1,
-            **{
-                LONGITUDE : center.x,
-                LATITUDE : center.y,
-                GEOMETRY_KEY : cell_poly
-            }
-        )
+        print('Bad region:', region)
     
     def dist(p1, p2):
         if not p1 or not p2:
@@ -175,18 +224,18 @@ def make_voronoi(points = int | list[Point], boundary: Polygon = None, seed: int
     
     return G_dual
 
-@seeded
-def populate(G: nx.Graph, max: int = 10000, min: int = 1, rng: Generator = None, seed: int = None):
-    for n, data in G.nodes(data=True):
-        data[NODE_ATTR] = rng.integers(min, max) 
+# @seeded
+# def populate(G: nx.Graph, max: int = 10000, min: int = 1, rng: Generator = None, seed: int = None):
+#     for n, data in G.nodes(data=True):
+#         data[NODE_ATTR] = rng.integers(min, max) 
         
-    print(f"Populated graph (seed: {seed})")
+#     print(f"Populated graph (seed: {seed})")
 
 if __name__ == "__main__":
     
     ALGORITHM = {
         "voronoi": make_voronoi,
-        "delunay": make_delunay
+        "points": make_random_points
     }    
     
     def init():
@@ -197,14 +246,16 @@ if __name__ == "__main__":
                         metavar='algorithm',
                         help='Type of geometry to generate (choices: %(choices)s)')
         parser.add_argument('n', type=int,
-                        help='Number of faces (for voronoi) or nodes (for delaunay)')
+                        help='Number of faces (for voronoi) or points (otherwise)')
 
         # Optional arguments
-        parser.add_argument('-W', '--width', type=float, default=10.0,
+        parser.add_argument('-W', '--width', type=float,
                         help='Width of the space (default: %(default)s)')
-        parser.add_argument('-H', '--height', type=float, default=10.0,
+        parser.add_argument('-H', '--height', type=float,
                         help='Height of the space (default: %(default)s)')
-        parser.add_argument('-P', '--max_population', type=int, default=100000,
+        parser.add_argument('-WH', '--size', type=float, default=10.0,
+                        help='Height and Width of the space (default: %(default)s)')
+        parser.add_argument('-P', '--max_population', type=int, default=10000,
                         help='Max population for single node (default: %(default)s)')
         parser.add_argument('-s', '--seed', type=int,
                         help='Generation seed')
@@ -217,7 +268,7 @@ if __name__ == "__main__":
                         help='Add hatches to graph')
         parser.add_argument('-L', '--label', type=str,
                         help='Label graph feature')
-        parser.add_argument('-o', '--output',
+        parser.add_argument('-o', '--output', type=str,
                         help='Output filename')
         
         return parser.parse_args()
@@ -227,23 +278,40 @@ if __name__ == "__main__":
     seed = args.seed or np.random.SeedSequence().entropy
     print('Seed used:', seed)
     
+    w = args.width or args.size
+    h = args.height or args.size
+    
     G = ALGORITHM[args.algorithm](
-        get_random_points(
-            args.n, 
-            boundary=(
-                -args.width/2, 
-                args.width/2, 
-                -args.height/2, 
-                args.height/2
-            ),
+        args.n, 
+        boundary = (boundary := (-w/2, -h/2, w/2, h/2)),
+        attrs = {
+            NODE_ATTR: randint(args.max_population, seed=seed)
+        },
+        generator = MixedPopulation(
+            *zip(*[(
+                ((point[LONGITUDE], point[LATITUDE]), point['var']), 
+                point['weight']
+            )
+            for point in make_random_points(
+                max(int(np.sqrt(args.n)), 1), 
+                boundary=boundary, 
+                attrs={
+                    'weight' : randint(100, seed=seed),
+                    'var' : randfloat(max(w, h) / 10, max(w, h) / 2, seed=seed)
+                },
+                seed=seed
+            )]),
             seed=seed
-        )
+        ),
+        seed=seed
     )
-    populate(G, seed=seed)
-
-    from my_utils import MetisFormat
-    MetisFormat().write(G, args.output)
+    
+    if isinstance(G, nx.Graph):
+        from my_utils import MetisFormat
+        MetisFormat().write(G, filename=args.output)
+    
+    # print (min(map(lambda x: x[NODE_ATTR], G)))
     
     if not args.quiet:
         from display import display
-        display(G, label = args.label, pattern = args.color and args.fancy)
+        display(G, label = args.label, color = args.color, hatch = args.fancy)
