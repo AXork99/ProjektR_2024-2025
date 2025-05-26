@@ -20,7 +20,7 @@ GEOMETRY_KEY = "geometry"
 LONGITUDE = 'longitude'
 LATITUDE = 'latitude'
 
-PLACEHOLDER = 'a'
+PLACEHOLDER = '../tmp/a'
 
 METIS_FLAGS = 11
 
@@ -145,6 +145,23 @@ def make_convex(points):
     except:
         return None
 
+class Identifiable:
+    ID = 0        
+    def __init_subclass__(cls):
+        cls.ID = 0
+
+    def __init__(self):
+        self.id = self.__class__.ID
+        self.__class__.ID += 1
+
+    def __hash__(self):
+        return hash(self.id)
+
+    def __eq__(self, other):
+        if not isinstance(other, Identifiable):
+            return NotImplemented
+        return self.id == other.id
+
 class MetisFormat:
     def __init__(
         self, 
@@ -171,7 +188,7 @@ class MetisFormat:
         if not filename:
             filename = self.default_name
         
-        if not re.search(r'\..*$', filename):
+        if not re.search(r'\.[a-zA-Z]*$', filename):
             filename = [filename + ext for ext in self.extentions]
         else:
             filename = [filename]
