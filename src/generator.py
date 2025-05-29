@@ -1,14 +1,12 @@
 #!/usr/bin/env python3
-import argparse
 
 import numpy as np
-from numpy.random import Generator
 import networkx as nx
 
-from shapely.geometry import Polygon, Point
-from collections import defaultdict
+from my_utils import seeded
+from numpy.random import Generator
 
-from my_utils import NODE_ATTR, EDGE_ATTR, GEOMETRY_KEY, LONGITUDE, LATITUDE, seeded
+from graphs import NODE_ATTR, EDGE_ATTR, GEOMETRY_KEY, LONGITUDE, LATITUDE
 
 class Population:
     def sample(self, n: int):
@@ -94,10 +92,13 @@ def get_color_map(num_colors, pattern: bool | list = None):
     
     return list(zip(colors, hatches)) if hatches else colors
 
+
+from shapely.geometry import Polygon
+
 @seeded
 def make_random_points(num: int, boundary: Polygon | tuple = None, generator: Population = None, attrs: dict = {}, seed: int = None):
-    from shapely.geometry import box
-    
+    from shapely.geometry import box, Point
+
     if not isinstance(boundary, Polygon):
         boundary = box(*boundary) if boundary else box(-num / 2, -num / 2, num / 2, num / 2)
     
@@ -129,7 +130,8 @@ def make_random_points(num: int, boundary: Polygon | tuple = None, generator: Po
 def make_voronoi(points = int | list[dict], seed = None, boundary: Polygon = None, **kwargs):
     from my_utils import make_convex, get_midpoint
     from scipy.spatial import Voronoi
-    from shapely import box
+    from shapely.geometry import box, Polygon, Point
+    from collections import defaultdict
     
     if isinstance(points, int):
         points = make_random_points(points, boundary=boundary, seed=seed, **kwargs)
@@ -224,13 +226,6 @@ def make_voronoi(points = int | list[dict], seed = None, boundary: Polygon = Non
     
     return G_dual
 
-# @seeded
-# def populate(G: nx.Graph, max: int = 10000, min: int = 1, rng: Generator = None, seed: int = None):
-#     for n, data in G.nodes(data=True):
-#         data[NODE_ATTR] = rng.integers(min, max) 
-        
-#     print(f"Populated graph (seed: {seed})")
-
 if __name__ == "__main__":
     
     ALGORITHM = {
@@ -239,6 +234,7 @@ if __name__ == "__main__":
     }    
     
     def init():
+        import argparse
         parser = argparse.ArgumentParser(description='Geometry generator')
 
         # Positional arguments
@@ -307,11 +303,16 @@ if __name__ == "__main__":
     )
     
     if isinstance(G, nx.Graph):
-        from my_utils import MetisFormat
+        from graphs import MetisFormat
+        
         MetisFormat().write(G, filename=args.output)
-    
-    # print (min(map(lambda x: x[NODE_ATTR], G)))
     
     if not args.quiet:
         from display import display
-        display(G, label = args.label, color = args.color, hatch = args.fancy)
+        
+        display(
+            G, 
+            label = args.label, 
+            color = args.color, 
+            hatch = args.fancy
+        )

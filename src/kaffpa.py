@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 import argparse
-from my_utils import KaHIP, PLACEHOLDER
+from graphs import KaHIP
+from my_utils import PLACEHOLDER
 
 def read_partition(file: str = PLACEHOLDER + '.part'):
     out = []

@@ -57,5 +57,8 @@
         "ranges": "cpp"
     },
     "C_Cpp.intelliSenseEngine": "disabled",
-    "clangd.arguments": ["--background-index"]
+    "clangd.arguments": [
+        "--background-index"
+    ],
+    "cmake.sourceDirectory": "/home/axork/projects/ProjektR_2024-2025/src/KaHIP"
 }

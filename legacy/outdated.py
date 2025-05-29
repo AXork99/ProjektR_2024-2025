@@ -157,3 +157,10 @@ def make_delunay(points: int | list, seed = None, attrs = None):
     )
     
     return G_dual
+
+# @seeded
+# def populate(G: nx.Graph, max: int = 10000, min: int = 1, rng: Generator = None, seed: int = None):
+#     for n, data in G.nodes(data=True):
+#         data[NODE_ATTR] = rng.integers(min, max) 
+        
+#     print(f"Populated graph (seed: {seed})")

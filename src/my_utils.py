@@ -1,31 +1,6 @@
-from typing import List, Dict, Optional
-
-from pathlib import Path
-import os
-import subprocess
-
-import numpy as np
-import networkx as nx
-import geopandas as gpd
-from numpy.random import Generator
-
-from shapely.geometry import Polygon, Point  
-
-NODE_ATTR = "population"
-EDGE_ATTR = "weight"
-
-GROUP_KEY = "IJ"
-PRIMARY_KEY = "BM"
-GEOMETRY_KEY = "geometry"
-LONGITUDE = 'longitude'
-LATITUDE = 'latitude'
+import numpy as np 
 
 PLACEHOLDER = '../tmp/a'
-
-METIS_FLAGS = 11
-
-def noExtension(path: str):
-    return path.split('.')[0]
 
 def cmd_format(*args, **kwargs):
     cmd = []
@@ -48,51 +23,9 @@ def cmd_format(*args, **kwargs):
                 cmd.append(f"{prefix}{key}={value}")
     return cmd
 
-class KaHIP:
-    def __init__(self, kahip_dir: str = "KaHIP"):
-        self.kahip_dir = Path(kahip_dir) 
-        self.deploy_dir = self.kahip_dir / "deploy"
-    
-    def list_binaries(self) -> List[str]:
-        return [f.name for f in self.deploy_dir.iterdir() if f.is_file() and os.access(f, os.X_OK)]
-    
-    def run_binary(
-        self, binary_name: str,
-        args: List[str] = None,
-        kwargs: Dict[str, str] = None,
-        timeout: Optional[float] = None,
-        capture_output: bool = False
-    ) -> subprocess.CompletedProcess:
-        
-        binary_path = self.deploy_dir / binary_name
-        if not binary_path.exists():
-            raise FileNotFoundError(f"Binary {binary_name} not found in {self.deploy_dir}")
-        
-        if not os.access(binary_path, os.X_OK):
-            raise PermissionError(f"Binary {binary_name} is not executable")
-        
-        cmd = [f"{binary_path}"]
-        cmd += cmd_format(*args, **kwargs)
-        
-        print(cmd)
-        
-        try:
-            return subprocess.run(
-                cmd,
-                timeout=timeout,
-                check=True,
-                capture_output=capture_output,
-                text=True
-            )
-        except subprocess.TimeoutExpired as e:
-            print(f"Command timed out after {timeout} seconds")
-            raise e
-        except subprocess.CalledProcessError as e:
-            print(f"Command {e.cmd} returned code {e.returncode}\nstderr: {e.stdout}\nstdout: {e.stderr}")
-            raise e
-
 def get_midpoint(p1, p2, offset=None):
-    """Calculate midpoint with optional perpendicular offset"""
+    from shapely.geometry import Point 
+    
     p1 = np.array([p1.x, p1.y]) if isinstance(p1, Point) else np.array(p1)
     p2 = np.array([p2.x, p2.y]) if isinstance(p2, Point) else np.array(p2)
     
@@ -123,6 +56,7 @@ def is_convex(points):
         return False
     
 def make_convex(points):
+    from shapely.geometry import Polygon
     from scipy.spatial import ConvexHull   
     
     points = np.asarray(points)
@@ -161,120 +95,10 @@ class Identifiable:
         if not isinstance(other, Identifiable):
             return NotImplemented
         return self.id == other.id
-
-class MetisFormat:
-    def __init__(
-        self, 
-        flags: int = METIS_FLAGS,
-        node_attr: str = NODE_ATTR,
-        edge_attr: str = EDGE_ATTR,
-        id: str = PRIMARY_KEY,
-        default_name: str = PLACEHOLDER
-    ):
-        self.flags = flags
-        self.node_attr = node_attr
-        self.edge_attr = edge_attr
-        self.id = id
-        self.default_name = default_name
-        self.extentions = {
-            '.geojson', 
-            '.graph'
-        }
-        self.G = None
-        self.data = None
     
-    def read(self, filename: str = None):
-        import re
-        if not filename:
-            filename = self.default_name
-        
-        if not re.search(r'\.[a-zA-Z]*$', filename):
-            filename = [filename + ext for ext in self.extentions]
-        else:
-            filename = [filename]
-        
-        for file in filename:
-            if file.endswith(".geojson"):
-                self.data = gpd.read_file(file).set_index(self.id)
-            
-            elif file.endswith(".graph"):
-                with open(file, 'r') as f:
-                    f.readline()
-                    G = nx.Graph()
-                    
-                    i = 1
-                    while (line := f.readline()):
-                        line = line.split()
-                        G.add_node(i, **{self.node_attr: int(line[0])})
-                        
-                        for it in np.arange(1, len(line), 2):
-                            j, w = int(line[it]), int(line[it + 1])
-                            G.add_edge(i, j, **{self.edge_attr: w})
-
-                        i += 1
-                    
-                    self.G = G
-            else:
-                raise TypeError(
-                    f"Unrecogised file extension: .{file.split('.').pop()}\n \
-                        Allowed extensions are: {self.extentions}"
-                )
-                
-        return self
-    
-    def embed(self):
-        if self.G is None or self.data is None:
-            raise ValueError("No data or graph defined!")
-        
-        for n, data in self.G.nodes(data=True):
-            for col in self.data:
-                data[col] = self.data.loc[n, col]
-                
-        self.data = None 
-        return self
-    
-    def flush(self):
-        if self.G is None:
-            raise ValueError("No graph defined!")
-        
-        G = self.G.copy()
-        self.G = None
-        
-        if self.data is None:
-            return G
-        
-        data = self.data.copy()
-        self.data = None
-        
-        return G, data
-        
-    def write(self, G: nx.Graph, filename: str = None, data = True):
-        if not filename:
-            filename = self.default_name
-            
-        with open(filename + '.graph', 'w') as f:
-            f.write(f"{G.number_of_nodes()} {G.number_of_edges()} {self.flags}\n")
-            
-            for n1, data in sorted(G.nodes(data=True)):
-                f.write(
-                    f"{data[self.node_attr]} { \
-                        " ".join([f"{n2} {G[n1][n2][self.edge_attr]}" \
-                        for n2 in G.neighbors(n1)]) \
-                    }\n"
-                )
-        
-        if data:
-            node_data = [
-                {**attrs, self.id : node} for node, attrs in sorted(G.nodes(data=True))
-            ]
-            gdf = gpd.GeoDataFrame(node_data, geometry=GEOMETRY_KEY)
-            gdf = gdf.set_crs(epsg=3765)
-            gdf.to_file(filename + ".geojson", driver="GeoJSON")
-
 def seeded(func):
     from functools import wraps
     from inspect import signature, Parameter
-    from numpy.random import PCG64
     
     sig = signature(func)
     params = list(sig.parameters.values())
@@ -299,6 +123,8 @@ def seeded(func):
     
     @wraps(func)
     def wrapper(*args, **kwargs):
+        from numpy.random import Generator, PCG64
+        
         bound = sig.bind(*args, **kwargs)
         bound.apply_defaults()
         
@@ -323,7 +149,117 @@ def seeded(func):
     
     wrapper.__signature__ = sig
     
-    return wrapper       
+    return wrapper    
+
+class Tournament:
+    class Node(Identifiable):
+        def __init__(self, data = None, children = set()):
+            super().__init__()
+            self.data = data
+            self.children : set[Tournament.Node] = children
+            for child in children:
+                self.add_child(child)
+            self.parent : Tournament.Node = None
+        
+        def add_child(self, child):
+            self.children.add(child)
+            child.parent = self
+            
+        def __repr__(self):
+            return f"{self.id} : {list(map(lambda x: x.id, self.children))}"
+            
+    def __init__(self, sequence = [], key = lambda x: x, reverse = False):
+        self.reverse = reverse
+        self.key = key
+        
+        self.bottom : list[Tournament.Node] = []
+        self.top_ = None
+        self.index = {}
+        
+        for s in sequence:
+            self.append(s)
+    
+    def append(self, s):
+        if self.top_ is None:
+            self.top_ = Tournament.Node(s)
+            self.bottom.append(self.top_)
+            return
+        
+        other = self.bottom[-1]
+        me = Tournament.Node(s)
+        self.bottom.append(me) 
+        
+        while other.parent is not None and len(other.children) != 1:
+            other = other.parent
+            me = Tournament.Node(s, children={me})
+            
+        if len(other.children) != 1:
+            other = Tournament.Node(children={other})
+            self.top_ = other
+        
+        other.add_child(me)
+        
+        i = len(self.bottom) - 1
+        self.update(i)
+        
+        return i
+    
+    def update(self, index: int, val = None):
+        def f(node: Tournament.Node):
+            node.data = (min if self.reverse else max)(map(lambda x: x.data, node.children), key=self.key)
+            if node.parent is not None:
+                f(node.parent)
+            
+        node : Tournament.Node = self.bottom[index]
+        if val:
+            node.data = val 
+        if node.parent:
+            f(node.parent)
+    
+    def print(self):
+        def rek(node: Tournament.Node, depth = 0):
+            print(node)
+            for n in node.children:
+                rek(n, depth+1)
+        rek(self.top_)
+    
+    def top(self):
+        return self.top_.data
+    
+    def get(self, i):
+        return self.bottom[i]   
+
+class pqueue:
+    def __init__(self, sequence = [], key = lambda x: x, maxHeap = False):
+        import heapq
+        
+        self.key = (lambda x: -key(x)) if maxHeap else key
+        self.heap = list(map(lambda x: (self.key(x), x), sequence))
+        heapq.heapify(self.heap)
+
+    def push(self, item):
+        import heapq
+        heapq.heappush(self.heap, (self.key(item), item))
+
+    def top(self):
+        return self.heap[0][1]
+
+    def pop(self):
+        import heapq
+        _, item = heapq.heappop(self.heap)
+        return item
+
+    def empty(self):
+        return self.size() == 0
+    
+    def size(self):
+        return len(self.heap) if self.heap else 0
+    
+    def merge(self, other):
+        for i in other:
+            self.push(i)
 
 if __name__ == "__main__":
-    pass
+    q = pqueue([1, 3, 1, 13, 55, 1])
+    while not q.empty():
+        print(q.pop())
