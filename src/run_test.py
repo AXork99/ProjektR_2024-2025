@@ -1,32 +1,45 @@
 #!/usr/bin/env python3
 
-from graphs import GROUP_KEY, NODE_ATTR, MetisFormat, Coloring
+from my_utils import PLACEHOLDER
 
 def init():
     import argparse
     parser = argparse.ArgumentParser(description='Geometry generator')
-    # parser.add_argument('k', nargs='?', default=0, type=int,
-    #                 help='Graph gen and/or partition seed')
-    # parser.add_argument('-n', '--new', type=int,
-    #                     help='Make new graph with n nodes')
-    # parser.add_argument('-t', '--timeout', type=int, default=3,
+    parser.add_argument('input_file', nargs='?', type=str, default=PLACEHOLDER,
+                    help='Graph input path, (default: %(default)s)')
+    parser.add_argument('-k', default=0, type=int,
+                    help='Number of partitions, if 0 just reads saved partition, (default: %(default)s)')
+    parser.add_argument('-t', '--timeout', type=int, default=3,
+                        help='Runtime for KAhIP'),
     parser.add_argument('-i', '--imbalance', type=float, default=5,
                         help='Allowed imbalance (default: %(default)s)')
     parser.add_argument('-L', '--label', type=str,
                         help='Label clusters')
     parser.add_argument('-M', '--minimal', action='store_true',
-                        help='Only draw voronoi graph')
-    parser.add_argument('-P', '--paramaters', nargs=4, type=float, default=[0.01, 1, 1, 1])
-    
+                        help='Only draw voronoi graph'),
+    parser.add_argument('-P', '--paramaters', nargs=4, type=float, default=[0.01, 1.4, 1.8, 4],
+                        help='Hyperparamaters of rebalancing algorithm')
     return parser.parse_args()
 
 args = init()
 
-G = MetisFormat().read().embed().flush()
+from graphs import MetisFormat
+metis = MetisFormat()
 
-from kaffpa import read_partition
-part = read_partition()
+G = metis.read(args.input_file).embed().flush()
+metis.write(G, data=True)
 
+from kaffpa import kaffpa, read_partition
+if args.k:
+    part = kaffpa(
+        k=args.k,
+        imbalance=args.imbalance,
+        tl=args.timeout,
+    )
+else:
+    part = read_partition()
+
+from graphs import Coloring
 coloring = Coloring(
     G, 
     initial = {n+1 : c for n, c in enumerate(part)}, 

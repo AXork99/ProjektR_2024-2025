@@ -101,4 +101,5 @@ if __name__ == "__main__":
         config = args.config,
         imbalance=args.imbalance,
         partition=args.initial_partition,
+        tl=args.timeout
     ))
