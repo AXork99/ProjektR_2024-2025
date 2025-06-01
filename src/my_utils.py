@@ -243,7 +243,7 @@ class Tournament:
         
         self.update(self.last.data)
     
-    def update(self, val, nval = None):
+    def update(self, val, nval = None, norefresh = False):
         if val not in self.index:
             raise IndexError(f'Value {val} not in tournament! Values {self.index.keys()}')
         
@@ -265,7 +265,8 @@ class Tournament:
             node.data = val 
             self.index[val] = index
         
-        self.priority[val] = self.key(val)
+        if not norefresh:
+            self.priority[val] = self.key(val)
 
         if node.parent:
             f(node.parent)
@@ -276,11 +277,13 @@ class Tournament:
         
         last = self.bottom.pop()
         
-        if self.index[val] < len(self.bottom):
-            self.update(val, last.data)
-        else:
-            self.index.pop(val)
-            self.priority.pop(val)
+        if (i := self.index[val]) < len(self.bottom):
+            self.bottom[i].data = last.data
+            self.index[last.data] = i
+            self.update(last.data, norefresh=True)
+        
+        self.index.pop(val)
+        self.priority.pop(val)
         
         while not last.children:
             last.parent.children.remove(last)
@@ -289,7 +292,7 @@ class Tournament:
         i = len(self.bottom) - 1
         self.last = self.bottom[i]
         
-        self.update(self.last.data)
+        self.update(self.last.data, norefresh=True)
     
     def print(self):
         print("BOTTOM", self.bottom)

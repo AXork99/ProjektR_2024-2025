@@ -284,17 +284,6 @@ class Coloring:
                             self.C.remove_edge(other, c)
                             if self.parent.tournament:
                                 self.parent.tournament.remove(unordered(other, c))
-                    
-                    # if c == self:
-                    #     self.parent.add_edge(other, self, -e)
-                    # elif c == other:
-                    #     self.parent.add_edge(other, self, e)
-                    # else:
-                    #     self.parent.add_edge(self, c, e)
-                    #     self.parent.add_edge(other, c, -e)
-                        
-                    #     if not self.parent.edge_weight(c, other):
-                    #         self.parent.remove_edge(c, other)
         
         def give(self, node, other: 'Coloring.Cluster'):
             other.take(node, self)
@@ -393,24 +382,6 @@ class Coloring:
     
     def edge_attr(self, c1, c2):
         return self.C[c1][c2][EDGE_ATTR] if isinstance(c1, Coloring.Cluster) else self.G[c1][c2][EDGE_ATTR]
-    
-    # def add_edge(self, c1, c2):
-    #     if not self.C.has_edge(c1, c2):
-    #         self.C.add_edge(c1, c2)
-    #         if self.tournament:
-    #             self.tournament.add(unordered(c1, c2))
-        
-    #     if self.tournament:
-    #         self.tournament.update(unordered(c1, c2))
-    
-    # def remove_edge(self, c1, c2):
-    #     if w := self.edge_attr(c1, c2):
-    #         raise ValueError(f"Attempting to remove edge with positive weight: {c1}-{c2} (weight: {w})")
-        
-    #     if self.tournament:
-    #         self.tournament.remove(unordered(c1, c2))
-        
-    #     self.C.remove_edge(c1, c2)
         
     def get_avg(self):
         if self.inferiors:
@@ -474,9 +445,6 @@ class Coloring:
         )
         
         while not queue.empty():
-            # print("Checking disolve: ")
-            # self.edge_check()
-            
             n1, n2 = queue.pop()
             if n1 in g.keys():
                 continue
@@ -505,14 +473,19 @@ class Coloring:
                     [(c, self.get_imbalance(c)) for c in self.clusters.values()]
                 )
             )
-        
         cluster : Coloring.Cluster = cluster[0]
         return float((cluster.population - self.get_avg()) / self.get_avg())
     
     def expected_error(self):
         return self.balance * self.get_avg()
     
-    def rebalance(self):
+    def rebalance(
+        self, 
+        activation_smoothness = 0.01, 
+        population_param = 1.5, 
+        perimeter_param = 1.8, 
+        mix_param = 4
+    ):
         from functions import SIGMOID, OFFSETROOT, extend_odd, SIGNEDLNORM, CONSTANT, cost_func
         from my_utils import Tournament
         
@@ -535,8 +508,6 @@ class Coloring:
             
             if not self.C.has_edge(*edge):
                 raise ValueError(f"EDGE {edge} not in Graph!")
-                # self.tournament.remove(edge)
-                # return -1
             
             c1, c2 = ordered(edge)
             equilibrium = (c1.population + c2.population) / 2
@@ -557,7 +528,7 @@ class Coloring:
                         edge_gain += self.edge_attr(n1, n2)
 
                 # define hyperparameters
-                C = cost(s=0.01, root1=1, root2=2, norm=4)
+                C = cost(s=activation_smoothness, root1=population_param, root2=perimeter_param, norm=mix_param)
                 
                 return C(population_diff_before)(0) - C(population_diff_after)(edge_gain)
 
@@ -565,11 +536,8 @@ class Coloring:
             
             if E is None:
                 raise ValueError(f"EDGE {edge} is empty!!")
-                # self.C.remove_edge(edge)
-                # self.tournament.remove(edge)
-            else:
-                self.C.edges[edge][EDGE_ATTR] = E
             
+            self.C.edges[edge][EDGE_ATTR] = E
             return P
         
         if not self.tournament:
@@ -583,12 +551,11 @@ class Coloring:
         c = self.tournament.priority[unordered(c1, c2)]
         if c < 0:
             print("UNABLE TO FIND IMPROVEMENTS!")
-            print(self.tournament.priority)
             return 1
         
         print(f"Moved {n2} from {c2} into {c1} COST: {c}")
         c1.take(n2, c2, force = False)
-            
+        
         for c in c1, c2:
             for n in self.C.neighbors(c):
                 self.tournament.update(unordered(c, n))
@@ -598,13 +565,3 @@ class Coloring:
         
     def __iter__(self):
         return iter(self.C.nodes)
-    
-    def __repr__(self):
-        return f"Coloring:\n{'\n'.join(map(str, self))}"
-
-    # def edge_check(self):
-    #     for c1, c2 in self.C.edges:
-    #         s1 = sum(map(lambda e: self.edge_attr(*e), c1.get_perimeter(c2)))
-    #         s2 = self.edge_attr(c1, c2)
-    #         if s1 != s2:
-    #             print(c1, c2, s1, s2) 
