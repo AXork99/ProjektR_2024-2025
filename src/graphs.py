@@ -177,6 +177,8 @@ class MetisFormat:
             gdf = gdf.set_crs(epsg=3765)
             gdf.to_file(filename + ".geojson", driver="GeoJSON")
 
+from my_utils import unordered
+
 def coords(node, G: nx.Graph):
     return np.array((
         G.nodes[node][LONGITUDE], 
@@ -185,15 +187,18 @@ def coords(node, G: nx.Graph):
 
 def dist(n1, n2, G: nx.Graph, norm = 2):
     from functions import LNORM
-    return LNORM(norm)(coords(n1, G), coords(n2, G))
+    return LNORM(norm)(*(coords(n1, G) - coords(n2, G)))
 
 class Coloring:
     from my_utils import Identifiable
     
     class Cluster(Identifiable):
-        def __init__(self, G: nx.graph, C: nx.Graph, id, initial = set()):
-            self.G : nx.Graph = G
-            self.C : nx.Graph = C
+        def __init__(self, parent : 'Coloring', id, initial = set()):
+            self.parent = parent
+            self.C = parent.C
+            self.G = parent.G
+            self.get_node_attr = self.parent.get_node_attr
+            self.get_cluster = self.parent.get_cluster
             
             self.id = id
             self.inferior = False
@@ -213,51 +218,108 @@ class Coloring:
         def inner_perimeter(self):
             return {n for n, _ in self.perimeter}
         
-        def get_perimeter(self, other):
-            def f(other: Coloring.Cluster):
-                return {(n1, n2) for n1, n2 in self.perimeter if n2 in other.nodes}
-            return f(other)
+        def get_perimeter(self, other: 'Coloring.Cluster'):
+            return {(n1, n2) for n1, n2 in self.perimeter if n2 in other.nodes}
         
         def add(self, node: int):
             from typing import Iterable
-            
             if isinstance(node, Iterable):
                 for n in node:
                     self.add(n)
             else:
-                self.dirty = True
-                self.G.nodes[node][GROUP_KEY] = self
+                self.take(node)
                 
-                self.population += self.G.nodes[node][NODE_ATTR]
-                self.center += np.array([
-                    self.G.nodes[node][LONGITUDE], 
-                    self.G.nodes[node][LATITUDE]
-                ])
-                self.geometry.add(self.G.nodes[node][GEOMETRY_KEY])
-                self.nodes.add(node)
+        def take(self, node, other: 'Coloring.Cluster' = None, force = False):
+            if other:
+                if not force:
+                    if other.is_separated_by(node):
+                        raise ValueError(f"Node {node} is an articulation point of cluster {other}!")
+                    
+                    if node not in other.inner_perimeter() or not self.C.has_edge(self, other):
+                        raise ValueError(f"Node {node} not on perimeter between {self} and {other}!")  
                 
-                for n in self.G.neighbors(node):
-                    if n in self.nodes:
-                        self.perimeter.remove((n, node))
+                other.dirty = True
+                other.population -= self.get_node_attr(node)
+                
+                other.center -= coords(node, self.G)
+                
+                other.geometry.remove(self.get_node_attr(node, GEOMETRY_KEY))
+                other.nodes.remove(node)       
+            
+            if node in self.nodes:
+                print(f"WARNING: re-adding node {node}!")
+                return
+            
+            self.G.nodes[node][GROUP_KEY] = self
+            
+            self.dirty = True
+            self.population += self.get_node_attr(node)
+                
+            self.center += coords(node, self.G)
+            
+            self.geometry.add(self.get_node_attr(node, GEOMETRY_KEY))
+            self.nodes.add(node)    
+
+            for n in self.G.neighbors(node):
+                if n in self.nodes:
+                    self.perimeter.remove((n, node))
+                else:
+                    self.perimeter.add((node, n))
+                
+                if other:
+                    if n in other.nodes:
+                        other.perimeter.add((n, node))
                     else:
-                        self.perimeter.add((node, n))
+                        other.perimeter.remove((node, n))    
+                    
+                    c = self.parent.get_cluster(n)
+                    
+                    if c != self and c != other:
+                        if not self.C.has_edge(self, c):
+                            self.C.add_edge(self, c)                    
+                            if self.parent.tournament:
+                                self.parent.tournament.add(unordered(self, c))
+                        
+                        if not other.get_perimeter(c):
+                            self.C.remove_edge(other, c)
+                            if self.parent.tournament:
+                                self.parent.tournament.remove(unordered(other, c))
+                    
+                    # if c == self:
+                    #     self.parent.add_edge(other, self, -e)
+                    # elif c == other:
+                    #     self.parent.add_edge(other, self, e)
+                    # else:
+                    #     self.parent.add_edge(self, c, e)
+                    #     self.parent.add_edge(other, c, -e)
+                        
+                    #     if not self.parent.edge_weight(c, other):
+                    #         self.parent.remove_edge(c, other)
         
-        def remove(self, node):
-            pass
+        def give(self, node, other: 'Coloring.Cluster'):
+            other.take(node, self)
         
-        def is_separated_by(self, node, max_iterations = 10):
+        def is_separated_by(self, node, max_iterations = None):
+            if len(self.nodes) == 1:
+                return True
+            
             removed = node
             nodes = {n for n in self.G.neighbors(removed) if n in self.nodes}
-    
-            curr = nodes.pop()
+            if not nodes:
+                return False
             
-            while max_iterations and nodes:
+            curr = nodes.pop()
+            if not max_iterations:
+                max_iterations = len(nodes) * 2
+            
+            while curr and max_iterations and len(nodes) > 0:
                 curr = min(
                     filter(
                         lambda node: node in self.nodes and node != removed, 
                         self.G.neighbors(curr)
                     ), 
-                    key = lambda node: min({dist(node, n, self.G) for n in nodes})
+                    key = lambda node: min({dist(node, n, self.G) for n in nodes}),
+                    default=None
                 )
                 if curr in nodes:
                     nodes.remove(curr)
@@ -267,13 +329,16 @@ class Coloring:
             return len(nodes) != 0
         
         def __repr__(self):
-            return f"Cluster {self.id}"
+            return f"Cluster {self.C.nodes[self][GROUP_KEY]}"
         
         def __int__(self):
             return int(self.C.nodes[self][GROUP_KEY])
         
         def __iter__(self):
             return iter(self.nodes)
+        
+        def __gt__(self, other: 'Coloring.Cluster'):
+            return self.id > other.id
     
     def __init__(self, G: nx.Graph, initial: dict, balance = 0.05):
         from collections import defaultdict
@@ -281,7 +346,7 @@ class Coloring:
         self.G: nx.Graph = G
         self.C = nx.Graph()
         
-        self.clusters = defaultdict(set)
+        self.clusters : dict[int, Coloring.Cluster] = defaultdict(set)
         self.inferiors = set()
         
         self.total_population = 0
@@ -291,9 +356,10 @@ class Coloring:
         
         for node, data in G.nodes(data=True):
             self.total_population += data[NODE_ATTR]
-            data[GROUP_KEY] = (c := Coloring.Cluster(G, self.C, id=node, initial={node}))
+            
+            data[GROUP_KEY] = (c := Coloring.Cluster(self, id=node, initial={node}))
             self.clusters[initial.get(node)].add(c)
-    
+
         self.C.add_nodes_from([
             (self.get_cluster(node), { 
                 GROUP_KEY: initial.get(node)
@@ -305,6 +371,7 @@ class Coloring:
             c1, c2 = self.get_cluster(n1, n2)
             if c1 == c2:
                 continue
+            
             if self.get_attr(c1) != self.get_attr(c2):
                 self.C.add_edge(c1, c2)
             else:
@@ -312,13 +379,6 @@ class Coloring:
                     self.collapse(c1, c2)
                 else:
                     self.collapse(c2, c1)
-        
-        avg = self.total_population / len(self.clusters)
-        err = {list(self.clusters[col])[0] : float((sum(map(lambda x: x.population, c)) - avg) / avg) for col, c in self.clusters.items()}
-
-        print('BASE ERR:')
-        print([(c, val) for c, val in err.items() if abs(val) > balance])
-        print(max(err.items(), key=lambda x: abs(x[1])))
 
         for col, clusters in sorted(self.clusters.items(), key=lambda c: -len(c[1])):
             clusters : set[Coloring.Cluster] = clusters
@@ -330,6 +390,27 @@ class Coloring:
             self.clusters[col] = dominant
         
         self.update_attrs()
+    
+    def edge_attr(self, c1, c2):
+        return self.C[c1][c2][EDGE_ATTR] if isinstance(c1, Coloring.Cluster) else self.G[c1][c2][EDGE_ATTR]
+    
+    # def add_edge(self, c1, c2):
+    #     if not self.C.has_edge(c1, c2):
+    #         self.C.add_edge(c1, c2)
+    #         if self.tournament:
+    #             self.tournament.add(unordered(c1, c2))
+        
+    #     if self.tournament:
+    #         self.tournament.update(unordered(c1, c2))
+    
+    # def remove_edge(self, c1, c2):
+    #     if w := self.edge_attr(c1, c2):
+    #         raise ValueError(f"Attempting to remove edge with positive weight: {c1}-{c2} (weight: {w})")
+        
+    #     if self.tournament:
+    #         self.tournament.remove(unordered(c1, c2))
+        
+    #     self.C.remove_edge(c1, c2)
         
     def get_avg(self):
         if self.inferiors:
@@ -365,16 +446,22 @@ class Coloring:
                 GEOMETRY_KEY: c.geometry
             })
             c.dirty = False
-    
+
     def collapse(self, c1: 'Coloring.Cluster', c2: 'Coloring.Cluster', force = False):
         if not force and not self.C.has_edge(c1, c2) and not c1.get_perimeter(c2):
             raise KeyError(f"{c1} and {c2} aren't incident!")
         
         c1.add(c2)
-        self.clusters[self.get_attr(c1)].remove(c2)
+        
+        clusters = self.clusters[col := self.get_attr(c1)]
+        
+        if isinstance(clusters, set):
+            clusters.remove(c2)
+        else:
+            self.clusters.pop(col)
         
         nx.contracted_nodes(self.C, c1, c2, self_loops=False, copy=False)
-    
+        
     def disolve(self, cluster: 'Coloring.Cluster'):
         from my_utils import pqueue
         
@@ -385,27 +472,28 @@ class Coloring:
             {e for e in cluster.perimeter if self.get_cluster(e[1]) not in self.inferiors},
             lambda edge: g[edge[1]] + self.G.nodes[edge[0]][NODE_ATTR]
         )
-
+        
         while not queue.empty():
+            # print("Checking disolve: ")
+            # self.edge_check()
+            
             n1, n2 = queue.pop()
             if n1 in g.keys():
-                c1, c2 = self.get_cluster(n1, n2)
-                if c1 != c2:
-                    self.C.add_edge(c1, c2)
                 continue
             
             g[n1] = g[n2] + self.G.nodes[n1][NODE_ATTR]
-            self.get_cluster(n2).add(n1)
+            self.get_cluster(n2).take(n1, cluster, force=True)
             
             for n in self.G.neighbors(n1):
                 if g.get(n) != g[n1]:
                     queue.push((n, n1))
-        
+         
         self.C.remove_node(cluster)
-    
+        
     def disolve_inferiors(self):
         while len(self.inferiors):
             self.disolve(self.inferiors.pop())
+        self.update_attrs()
     
     def get_imbalance(self, *cluster):
         if len(cluster) > 1:
@@ -421,73 +509,102 @@ class Coloring:
         cluster : Coloring.Cluster = cluster[0]
         return float((cluster.population - self.get_avg()) / self.get_avg())
     
+    def expected_error(self):
+        return self.balance * self.get_avg()
+    
     def rebalance(self):
-        from functions import SIGMOID, IDENTITY, YTRANSLATED, RELU, YSCALED, COMPOSE, OFFSETLOG, L1NORM, NROOT
+        from functions import SIGMOID, OFFSETROOT, extend_odd, SIGNEDLNORM, CONSTANT, cost_func
         from my_utils import Tournament
         
-        expected_error = self.balance * self.get_avg()
-        
-        def cost_func(
-            activation = SIGMOID(m = expected_error, s = 0.1), 
-            x = YTRANSLATED(expected_error, IDENTITY), 
-            y = COMPOSE(YSCALED(expected_error * 3/2, RELU(w=1000)), NROOT(2)),
-            norm = L1NORM
-        ):
-            def f(p, e):
-                return norm(x(p) * activation(p), y(e) * (1 - activation(p)))
-            return f
-        
-        def perimeter_weight():
-            def f(edge: tuple[Coloring.Cluster, Coloring.Cluster]):
-                p = self.C.edges[edge][EDGE_ATTR]
-                e = abs(edge[0].population - edge[1].population)
-                
-                return cost_func()(p, e)
+        def ordered(edge: tuple[Coloring.Cluster, Coloring.Cluster]) -> tuple[Coloring.Cluster, Coloring.Cluster]:
+            if edge is None:
+                return None
+            return min(edge, key=lambda x: x.population), max(edge, key=lambda x: x.population)
+               
+        def cost(s, root1, root2, norm):
+            return cost_func(
+                x = OFFSETROOT(root1),
+                y = extend_odd(OFFSETROOT(root2)),
+                xactivation = SIGMOID(m = self.expected_error() * 2, s=s),
+                yactivation = CONSTANT(1),
+                norm=SIGNEDLNORM(norm)
+            )
             
-            return f
-        
-        if not self.tournament:
-            self.tournament = Tournament(key=perimeter_weight())
-            for edge in self.C.edges:
-                self.C.edges[edge][EDGE_ATTR] = edge[0].get_perimeter(edge[1])
-                self.C.edges[edge][EDGE_ID] = self.tournament.append(edge)
-        
-        c11, c22 = self.tournament.top()
-        c1 : Coloring.Cluster = min(c11, c22, lambda x: x.population)
-        c2 : Coloring.Cluster = max(c11, c22, lambda x: x.population)
-        
-        equilibrium = (c1.population + c2.population) / 2
-        
-        def edge_weight(s = 0.05):
-            def f(edge):
+        def perimeter_weight(edge: tuple[Coloring.Cluster, Coloring.Cluster]):
+            edge = unordered(*edge)
+            
+            if not self.C.has_edge(*edge):
+                raise ValueError(f"EDGE {edge} not in Graph!")
+                # self.tournament.remove(edge)
+                # return -1
+            
+            c1, c2 = ordered(edge)
+            equilibrium = (c1.population + c2.population) / 2
+            
+            def edge_weight(edge):
                 n1, n2 = edge
                 if c2.is_separated_by(n2):
                     return -1
                 
-                population_gain = abs(equilibrium - c1.population - self.get_node_attr(n2)) * 2
+                population_diff_before = abs(equilibrium - c1.population) * 2
+                population_diff_after = abs(equilibrium - c1.population - self.get_node_attr(n2)) * 2
                 
                 edge_gain = 0
                 for n in self.G.neighbors(n2):
                     if self.get_cluster(n) == c1:
-                        edge_gain -= self.G[n1][n2][EDGE_ATTR]
-                    else:
-                        edge_gain += self.G[n1][n2][EDGE_ATTR]
+                        edge_gain -= self.edge_attr(n1, n2)
+                    elif self.get_cluster(n) == c2:
+                        edge_gain += self.edge_attr(n1, n2)
 
-                return cost_func(activation = SIGMOID(m = expected_error, s = s))(population_gain, edge_gain)
+                # define hyperparameters
+                C = cost(s=0.01, root1=1, root2=2, norm=4)
+                
+                return C(population_diff_before)(0) - C(population_diff_after)(edge_gain)
+
+            E, P = max({(e, edge_weight(e)) for e in c1.get_perimeter(c2)}, key=lambda e: e[1], default=(None, -1))
             
-            return f
+            if E is None:
+                raise ValueError(f"EDGE {edge} is empty!!")
+                # self.C.remove_edge(edge)
+                # self.tournament.remove(edge)
+            else:
+                self.C.edges[edge][EDGE_ATTR] = E
+            
+            return P
         
-        _, n2 = min(c1.get_perimeter(c2), key=edge_weight())
+        if not self.tournament:
+            self.tournament = Tournament(key=perimeter_weight)
+            for edge in self.C.edges:
+                self.tournament.add(unordered(*edge))
         
-        c1.add(n2)
-        c2.remove(n2)
+        c1, c2 = ordered(self.tournament.top())
+        n1, n2 = self.edge_attr(c1, c2)
         
+        c = self.tournament.priority[unordered(c1, c2)]
+        if c < 0:
+            print("UNABLE TO FIND IMPROVEMENTS!")
+            print(self.tournament.priority)
+            return 1
+        
+        print(f"Moved {n2} from {c2} into {c1} COST: {c}")
+        c1.take(n2, c2, force = False)
+            
         for c in c1, c2:
             for n in self.C.neighbors(c):
-                self.tournament.update(self.C[c][n][EDGE_ID])
+                self.tournament.update(unordered(c, n))
+        
+        self.update_attrs()
+        return 0
         
     def __iter__(self):
         return iter(self.C.nodes)
     
     def __repr__(self):
         return f"Coloring:\n{'\n'.join(map(str, self))}"
+
+    # def edge_check(self):
+    #     for c1, c2 in self.C.edges:
+    #         s1 = sum(map(lambda e: self.edge_attr(*e), c1.get_perimeter(c2)))
+    #         s2 = self.edge_attr(c1, c2)
+    #         if s1 != s2:
+    #             print(c1, c2, s1, s2) 

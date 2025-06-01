@@ -1,8 +1,8 @@
 import networkx as nx
 
 from graphs import GROUP_KEY, GEOMETRY_KEY, LONGITUDE, LATITUDE
-
 import matplotlib.pyplot as plt
+
 plot = plt.show
 
 def display(
@@ -40,7 +40,7 @@ def display(
         node_size = 10 if draw_dual or draw_points else 0, 
         edge_color = (0, 0, 0, 0.5 if draw_dual else 0),
         with_labels = label != False and not draw_voronoi, 
-        labels = {n: lbl if (lbl := d.get(label)) is not None else str(n) for n, d in G.nodes(data=True)},
+        labels = {n: f"{str(n)}:{lbl if (lbl := d.get(label)) is not None else ''}" for n, d in G.nodes(data=True)},
         ax=ax
     )
     
@@ -75,7 +75,7 @@ def display(
                 centroid = poly.centroid
                 ax.text(
                     centroid.x, centroid.y, 
-                    region.get(label) or str(n),
+                    f"{str(n)}:{lbl if (lbl := region.get(label)) is not None else ''}",
                     ha='center', va='center',
                     fontsize=8,
                     bbox=dict(facecolor='white', alpha=0.7, edgecolor='none', pad=1)
