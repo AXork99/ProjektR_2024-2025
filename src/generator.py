@@ -3,10 +3,10 @@
 import numpy as np
 import networkx as nx
 
-from my_utils import seeded
+from .utils import seeded
 from numpy.random import Generator
 
-from graphs import NODE_ATTR, EDGE_ATTR, GEOMETRY_KEY, LONGITUDE, LATITUDE
+from .graphs.constants import *
 
 class Population:
     def sample(self, n: int):
@@ -128,7 +128,7 @@ def make_random_points(num: int, boundary: Polygon | tuple = None, generator: Po
 
 @seeded
 def make_voronoi(points = int | list[dict], seed = None, boundary: Polygon = None, **kwargs):
-    from my_utils import make_convex, get_midpoint
+    from .utils import make_convex, get_midpoint
     from scipy.spatial import Voronoi
     from shapely.geometry import box, Polygon, Point
     from collections import defaultdict

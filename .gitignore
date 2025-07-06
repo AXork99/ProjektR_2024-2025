@@ -1,7 +1,8 @@
-
 __pycache__/
 
 *.xlxs
 *.txt
-.vscode/
+
 tmp/*
+
+/save
