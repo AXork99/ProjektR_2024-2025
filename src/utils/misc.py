@@ -13,6 +13,12 @@ def get_tmp_path():
 
 PLACEHOLDER = get_tmp_path() + '/a'
 
+def avg(args):
+    return sum(args) / len(args)
+
+def attr(obj, name):
+    return lambda x: obj[x].get(name)
+
 def cmd_format(*args, **kwargs):
     cmd = []
     if args:

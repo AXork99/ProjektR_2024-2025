@@ -6,11 +6,10 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent))
 
 from src.graphs import *
-import json
 import geopandas as gpd
 
 metis = MetisFormat()
-        
+
 dir = "../Nikola/spatial files"
 voronoi_data : gpd.GeoDataFrame = gpd.read_file(f"{dir}/country_Voronoi_clip.geojson")
 from shapely import unary_union, MultiPolygon, Polygon
@@ -27,30 +26,38 @@ voronoi_data[GEOMETRY_KEY] = voronoi_data[GEOMETRY_KEY].apply(reduce)
 # "properties": {
 #     "Rbr IJ": 8,
 #     "Naziv izborne jedinice": "VIII. IZBORNA JEDINICA",
+#     "ID_u_zupaniji": 145,
+
+banned = {"ID_u_zupaniji", "Rbr IJ", "Naziv izborne jedinice", "Rbr.županije", "Županija"}
+
+#     "Latitude": 45.4523108,
+#     "Longitude": 13.5390361,
+#     "Ukupno birača": 928,
+
+common = {
+    "Latitude" : LATITUDE,
+    "Longitude" : LONGITUDE,
+    "Ukupno birača" : NODE_ATTR,
+    "geometry" : GEOMETRY_KEY,
+}
 
 #     "Rbr.županije": 18,
 #     "Županija": "ISTARSKA ŽUPANIJA",
 
 ZUP_id = "Rbr.županije"
 ZUP_map = {
-    "Županija" : "name",    
+    "Županija" : "name",   
+    **common
 }
 
-#     "Latitude": 45.4523108,
-#     "Longitude": 13.5390361,
 #     "ID_global": 5126,
-#     "Ukupno birača": 928,
 
 BM_map = {
-    "Latitude" : LATITUDE,
-    "Longitude" : LONGITUDE,
     "ID_global" : PRIMARY_KEY,
-    "Ukupno birača" : NODE_ATTR,
-    "geometry" : GEOMETRY_KEY,
-    "" : "data"
+    "" : "data",
+    **common
 }
 
-#     "ID_u_zupaniji": 145,
 #     "Oznaka Gr/Op/Dr": "grad",
 #     "Grad/općina/država": "UMAG - UMAGO",
 #     "Rbr BM": 6,
@@ -77,15 +84,35 @@ for id, row in voronoi_data.iterrows():
     for key, val in data.items():
         if key in BM_map.keys():
             zups[zup_id]["BMs"][BM_map[key]].append(val)
-        elif key in ZUP_map.keys():
-            zups[zup_id]["meta"][ZUP_map[key]] = val
-        else:
+        elif key not in banned:
             extras[key] = val
-            
+        
+        if key in ZUP_map.keys():
+            if isinstance(val, str):
+                name : str = zups[zup_id]["meta"].get(ZUP_map[key])
+                if name and name != val:
+                    raise ValueError("Same ID %d different names! : %s and %s".format(zup_id, name, val))
+                zups[zup_id]["meta"][ZUP_map[key]] = val
+            elif isinstance(val, Polygon):
+                poly : list = zups[zup_id]["meta"].get(ZUP_map[key], [])
+                poly.append(val)
+                zups[zup_id]["meta"][ZUP_map[key]] = poly
+            else:
+                num = zups[zup_id]["meta"].get(ZUP_map[key], 0)
+                zups[zup_id]["meta"][ZUP_map[key]] = num + val
+        
     zups[zup_id]["BMs"]["data"].append(extras)
 
 for id, zup in zups.items():
     data = gpd.GeoDataFrame(zup["BMs"], crs="EPSG:3765")
     data.to_file(f'parsed/zupanija_{id}.geojson', driver='GeoJSON')
-    with open(f"parsed/zupanija_{id}.json", 'w', encoding="utf-8") as f:
-        json.dump(zup["meta"], f, ensure_ascii=False, indent=2)
+    
+    zup["meta"][GEOMETRY_KEY] = [reduce(MultiPolygon(zup["meta"][GEOMETRY_KEY]))]
+  
+    metadata = gpd.GeoDataFrame(zup["meta"], crs="EPSG:3765")
+    metadata.to_file(f'parsed/zupanija_{id}_meta.geojson', driver='GeoJSON', encoding="utf-8")
+
+    from src.generator import make_voronoi
+    dual = make_voronoi(data.to_dict('records'))
+    
+    metis.write(dual, f"parsed/zupanija_{id}", data=False)

@@ -8,14 +8,16 @@ def init():
     
     parser.add_argument('input_file', nargs='?', type=str, default=PLACEHOLDER,
                     help='Graph input path, (default: %(default)s)')
+    
     parser.add_argument('-k', default=0, type=int,
                     help='Number of partitions, if 0 just reads saved partition, (default: %(default)s)')
     parser.add_argument('-t', '--timeout', type=int, default=3,
                         help='Runtime for KAhIP'),
     parser.add_argument('-i', '--imbalance', type=float, default=5,
                         help='Allowed imbalance (default: %(default)s)')
-    parser.add_argument('-L', '--label', type=str,
-                        help='Label clusters')
+    
+    parser.add_argument('-L', '--label', type=str, default="False",
+                        help='Label clusters (default: %(default)s)')
     parser.add_argument('-M', '--minimal', action='store_true',
                         help='Only draw voronoi graph'),
     parser.add_argument('-P', '--paramaters', nargs=4, type=float, default=[1.5, 1.2, 50, 3],
@@ -28,12 +30,10 @@ args = init()
 metis = graphs.MetisFormat()
 
 G = metis.read(args.input_file).embed().flush()
+if args.input_file != PLACEHOLDER:
+    metis.write(G)
 
-# metis.write(G, data=True)
-
-display(G, color=False, draw="all")
-
-exit(0)
+# display(G, label=args.label)
 
 if args.k:
     part = kaffpa(

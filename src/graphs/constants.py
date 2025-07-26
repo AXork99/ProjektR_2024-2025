@@ -7,3 +7,5 @@ LATITUDE = 'latitude'
 
 EDGE_ATTR = "weight"
 EDGE_ID = "id"
+
+PERCISION = 4

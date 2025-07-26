@@ -247,7 +247,6 @@ def make_voronoi(points = int | list[dict], seed = None, boundary: Polygon = Non
     
     # O(N^2) Dual graph construction
     try:
-        PERCISION = 3
         G_dual.add_edges_from(
             (p1 + 1, p2 + 1, {EDGE_ATTR: int(d * (10 ** PERCISION))}) # KaHIP only accepts integer distance
             for p1, p2 in vor.ridge_points if (d := dist(p1 + 1, p2 + 1)) is not None
