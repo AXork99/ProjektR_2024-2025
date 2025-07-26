@@ -244,7 +244,7 @@ class Coloring:
             
             self.dirty = True
             self.population += self.get_node_attr(node)
-                
+            
             self.center += coords(node, self.G)
             
             self.geometry.add(self.get_node_attr(node, GEOMETRY_KEY))

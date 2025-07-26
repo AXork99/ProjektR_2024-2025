@@ -16,7 +16,7 @@ class Population:
         pass
     
     @seeded
-    def __init__(self, seed=None, rng: Generator = None):
+    def __init__(self, seed = None, rng: Generator = None):
         self.seed = seed
         self.rng = rng
     
@@ -92,7 +92,6 @@ def get_color_map(num_colors, pattern: bool | list = None):
     
     return list(zip(colors, hatches)) if hatches else colors
 
-
 from shapely.geometry import Polygon
 
 @seeded
@@ -111,7 +110,7 @@ def make_random_points(num: int, boundary: Polygon | tuple = None, generator: Po
         )
     
     points = {}
-    while (N := len(points)) < num:
+    while len(points) < num:
         point = generator.get()
         if boundary.contains(Point(*point)):
             points[point] = {
@@ -148,7 +147,8 @@ def make_voronoi(points = int | list[dict], seed = None, boundary: Polygon = Non
         
         boundary = box(min_coords[0]-PAD, min_coords[1]-PAD,
                 max_coords[0]+PAD, max_coords[1]+PAD)
-    else:
+        
+    elif isinstance(boundary, tuple):
         boundary = box(*boundary)
 
     vor = Voronoi(points)
@@ -303,12 +303,12 @@ if __name__ == "__main__":
     )
     
     if isinstance(G, nx.Graph):
-        from graphs import MetisFormat
+        from .graphs import MetisFormat
         
         MetisFormat().write(G, filename=args.output)
     
     if not args.quiet:
-        from display import display
+        from .display import *
         
         display(
             G, 

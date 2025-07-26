@@ -6,7 +6,7 @@ from . import plt
 def display(
     G: nx.Graph | list[dict], 
     label: str | bool = True, 
-    color: bool = True,
+    color: bool = False,
     hatch: bool | list = None,
     num_colors: int = None,
     draw: str = 'all',
@@ -30,14 +30,14 @@ def display(
     if not ax:
         display_immediate = True
         _, ax = plt.subplots(figsize=(10, 8))
-
+    
     nx.draw(
         G, pos = {n : (data[LONGITUDE], data[LATITUDE]) for n, data in G.nodes(data=True)},
         node_color="red", 
         node_size = 10 if draw_dual or draw_points else 0, 
         edge_color = (0, 0, 0, 0.5 if draw_dual else 0),
         with_labels = label != False and not draw_voronoi, 
-        labels = {n: f"{str(n)}:{lbl if (lbl := d.get(label)) is not None else ''}" for n, d in G.nodes(data=True)},
+        labels = {n: str(n) + (f":{lbl}" if (lbl := d.get(label)) is not None else '') for n, d in G.nodes(data=True)},
         ax=ax
     )
     
@@ -73,7 +73,7 @@ def display(
                 centroid = poly.centroid
                 ax.text(
                     centroid.x, centroid.y, 
-                    f"{str(n)}:{lbl if (lbl := region.get(label)) is not None else ''}",
+                    str(n) + (f":{lbl}" if (lbl := region.get(label)) is not None else ''),
                     ha='center', va='center',
                     fontsize=8,
                     bbox=dict(facecolor='white', alpha=0.7, edgecolor='none', pad=1)
