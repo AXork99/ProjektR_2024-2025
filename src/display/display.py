@@ -15,6 +15,12 @@ def display(
     from shapely.ops import unary_union
     from typing import Iterable
 
+    if label == "False":
+        label = False
+    if label == "True":
+        label = True
+        
+    
     draw_points = not isinstance(G, nx.Graph) or draw == 'points'
     draw_dual = not draw_points and draw == 'all' or draw == 'dual'
     draw_voronoi = not draw_points and draw == 'all' or draw == 'voronoi'
