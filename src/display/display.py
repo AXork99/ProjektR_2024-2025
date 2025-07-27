@@ -1,4 +1,5 @@
 import networkx as nx
+from shapely import MultiLineString
 
 from ..graphs.constants import *
 from . import plt
@@ -20,7 +21,6 @@ def display(
     if label == "True":
         label = True
         
-    
     draw_points = not isinstance(G, nx.Graph) or draw == 'points'
     draw_dual = not draw_points and draw == 'all' or draw == 'dual'
     draw_voronoi = not draw_points and draw == 'all' or draw == 'voronoi'
@@ -56,7 +56,7 @@ def display(
         
         for n, region in G.nodes(data=True):
             if color or num_colors:
-                color = color_map[int((region.get(GROUP_KEY)) or n) % N]
+                color = color_map[int(region.get(GROUP_KEY, n)) % N]
                 if color and len(color) == 2:
                     color, hatch = color
                 else:
@@ -64,11 +64,16 @@ def display(
             else:
                 color, hatch = None, None
             
+            from ..utils import reduce_polygon
             poly = unary_union(list(p) if isinstance(p := region[GEOMETRY_KEY], Iterable) else [p])
+            
+            bound = poly.boundary
+            if isinstance(bound, MultiLineString):
+                bound = bound.geoms[0]
             
             ax.add_patch(
                 plt.Polygon(
-                    poly.boundary.coords, 
+                    bound.coords, 
                     facecolor=color or 'white',
                     edgecolor=color or 'blue', 
                     hatch=hatch, 

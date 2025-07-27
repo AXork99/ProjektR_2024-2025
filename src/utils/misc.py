@@ -13,6 +13,14 @@ def get_tmp_path():
 
 PLACEHOLDER = get_tmp_path() + '/a'
 
+def reduce_polygon(poly):
+    from shapely import unary_union, MultiPolygon
+    if isinstance(poly, MultiPolygon):
+        poly = unary_union(poly.geoms)
+    if isinstance(poly, MultiPolygon):
+        poly = max(poly.geoms, key = lambda p : p.area)
+    return poly
+
 def avg(args):
     return sum(args) / len(args)
 

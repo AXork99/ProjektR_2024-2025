@@ -34,5 +34,4 @@ print(f"zero_weights : {edges([compose(sum, lambda arr : map(lambda x: 1 if x ==
 print(f"total_width : {(E - W) * (10 ** PERCISION):.2f} ")
 print(f"total_height : {(N - S) * (10 ** PERCISION):.2f}")
 
-
-# display(G, label=False)
+display(G)

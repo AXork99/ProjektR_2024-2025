@@ -3,8 +3,13 @@ import networkx as nx
 
 from .constants import *
 
+def get_path(name):
+    from pathlib import Path
+    package_dir = Path(__file__).parent.parent  # Adjust based on your structure
+    return str(package_dir / name)
+
 class KaHIP:
-    def __init__(self, kahip_dir: str = "KaHIP"):
+    def __init__(self, kahip_dir: str = get_path("KaHIP")):
         from pathlib import Path
         
         self.kahip_dir = Path(kahip_dir) 
@@ -185,8 +190,10 @@ class Coloring:
     class Cluster(Identifiable):
         def __init__(self, parent : 'Coloring', id, initial = set()):
             self.parent = parent
+            
             self.C = parent.C
             self.G = parent.G
+            
             self.get_node_attr = self.parent.get_node_attr
             self.get_cluster = self.parent.get_cluster
             
@@ -335,16 +342,10 @@ class Coloring:
         
         for node, data in G.nodes(data=True):
             self.total_population += data[NODE_ATTR]
-            
-            data[GROUP_KEY] = (c := Coloring.Cluster(self, id=node, initial={node}))
-            self.clusters[initial.get(node)].add(c)
-
-        self.C.add_nodes_from([
-            (self.get_cluster(node), { 
-                GROUP_KEY: initial.get(node)
-            })
-            for node in G.nodes
-        ])
+            data[GROUP_KEY] = c = Coloring.Cluster(self, id=node, initial={node})
+     
+            self.clusters[ij := initial.get(node)].add(c)
+            self.C.add_node(c, **{GROUP_KEY: ij})
         
         for n1, n2, data in G.edges(data=True):
             c1, c2 = self.get_cluster(n1, n2)
@@ -496,12 +497,16 @@ class Coloring:
                 
                 edge_gain = 0
                 for n in self.G.neighbors(n2):
+                    # print(n, end=" ")
                     if self.get_cluster(n) == c1:
-                        edge_gain -= self.edge_attr(n1, n2)
+                        edge_gain -= self.edge_attr(n2, n)
                     elif self.get_cluster(n) == c2:
-                        edge_gain += self.edge_attr(n1, n2)
-                        
-                # print("EDGE_GAIN:", edge_gain)
+                        edge_gain += self.edge_attr(n2, n)
+                
+                if (n1 == 64 or n2 == 64):
+                    print(f"EDGE_GAIN {n1} {n2}:", edge_gain)
+                    print(f"NODE_GAIN :", population_diff_before - population_diff_after)
+                    print(f"COST:", cost_func(population_diff_before)(0) - cost_func(population_diff_after)(edge_gain))
 
                 return cost_func(population_diff_before)(0) - cost_func(population_diff_after)(edge_gain)
 

@@ -7,6 +7,7 @@ from .utils import seeded, PLACEHOLDER
 from numpy.random import Generator
 
 from .graphs.constants import *
+from .display import *
 
 class Population:
     def sample(self, n: int):
@@ -175,59 +176,61 @@ def make_voronoi(points = int | list[dict], seed = None, boundary: Polygon = Non
 
     vor = Voronoi(points)
     
-    # If the cell descriptors don't provide geometry, a new voronoi diagram is generated
-    if not node_data[0].get(GEOMETRY_KEY):
+    # If the cell descriptors don't provide geometry, it is ingerited from the voronoi diagram
+    # Otherwise the generated diagram is used to create the dual and afterwards the geometry is restored
+    # This way we allow our maps to contain non-connected and even non-planar geometry
+    save_geom = {}
+    
+    MID = Point(np.average(points, axis=0))
+    LINE = max(boundary.bounds) * 50  # Length for extending infinite edges
+    
+    # Step 1: Handle infinite ridges
+    infinite = defaultdict(list)
+    for (p1, p2), (v1, v2) in zip(vor.ridge_points, vor.ridge_vertices):
+        if v1 == -1 or v2 == -1:
+            midpoints = get_midpoint(vor.points[p1], vor.points[p2], LINE)
+            mid = max(midpoints, key=lambda p: Point(p).distance(MID)) 
+            infinite[vor.point_region[p1]].append(mid)
+            infinite[vor.point_region[p2]].append(mid)
+    
+    # Step 2: Create valid polygons for each cell
+    for i, data in enumerate(node_data):
+        region_idx = vor.point_region[i]
+        region = vor.regions[region_idx]
         
-        MID = Point(np.average(points, axis=0))
-        LINE = max(boundary.bounds) * 20  # Length for extending infinite edges
+        if not region:
+            raise ValueError(f'Invalid region {i + 1}')
         
-        # Step 1: Handle infinite ridges
-        infinite = defaultdict(list)
-        for (p1, p2), (v1, v2) in zip(vor.ridge_points, vor.ridge_vertices):
-            if v1 == -1 or v2 == -1:
-                midpoints = get_midpoint(vor.points[p1], vor.points[p2], LINE)
-                mid = max(midpoints, key=lambda p: Point(p).distance(MID)) 
-                infinite[vor.point_region[p1]].append(mid)
-                infinite[vor.point_region[p2]].append(mid)
-        
-        # Step 2: Create valid polygons for each cell
-        for i, data in enumerate(node_data):
-            region_idx = vor.point_region[i]
-            region = vor.regions[region_idx]
+        # Case 1: Finite Voronoi cell
+        if -1 not in region:
+            cell_poly = Polygon(vor.vertices[region])
+        # Case 2: Infinite Voronoi cell
+        else:
+            finite_verts = [vor.vertices[v] for v in region if v != -1]
             
-            if not region:
-                raise ValueError(f'Invalid region {i + 1}')
-            
-            # Case 1: Finite Voronoi cell
-            if -1 not in region:
-                cell_poly = Polygon(vor.vertices[region])
-            # Case 2: Infinite Voronoi cell
-            else:
-                finite_verts = [vor.vertices[v] for v in region if v != -1]
+            cell_poly = make_convex(finite_verts + infinite[region_idx]) or Polygon(finite_verts)
+        
+        # Final validation and clipping
+        if cell_poly and cell_poly.is_valid:
+            cell_poly = cell_poly.intersection(boundary)
+            if not cell_poly.is_empty:
+                if cell_poly.geom_type == 'MultiPolygon':
+                    print('Clipping issue:', region)
+                    cell_poly = max(cell_poly.geoms, key=lambda p: p.area)
                 
-                cell_poly = make_convex(finite_verts + infinite[region_idx]) or Polygon(finite_verts)
-            
-            # Final validation and clipping
-            if cell_poly and cell_poly.is_valid:
-                cell_poly = cell_poly.intersection(boundary)
-                if not cell_poly.is_empty:
-                    if cell_poly.geom_type == 'MultiPolygon':
-                        print('Clipping issue:', region)
-                        cell_poly = max(cell_poly.geoms, key=lambda p: p.area)
+                if cell_poly.geom_type == 'Polygon':
+                    # Indexes start from 1, following the METIS convention
                     
-                    if cell_poly.geom_type == 'Polygon':
-                        data[GEOMETRY_KEY] = cell_poly
-                        G_dual.add_node(i + 1, **data)
-                        continue
-            
-            print('Bad region:', region)
+                    if geo := data.get(GEOMETRY_KEY):
+                        save_geom[i+1] = geo
+                    data[GEOMETRY_KEY] = cell_poly
+                    
+                    G_dual.add_node(i + 1, **data)
+                    continue
+        
+        print('Bad region:', region)
     
-    # If the cell geometry is already defined, it is simply passed to the graph
-    # Indexes start from 1, following the METIS convention
-    else:
-        G_dual.add_nodes_from([(n + 1, data) for n, data in enumerate(node_data)])
-    
-    # Funciton used to detect voronoi cell borders to generate the dual graph
+    # Funciton used to detect voronoi cell borders to generate the dual graph, only workd for voronoi cells
     def dist(p1, p2):
         if not p1 or not p2:
             return None
@@ -247,13 +250,26 @@ def make_voronoi(points = int | list[dict], seed = None, boundary: Polygon = Non
     
     # O(N^2) Dual graph construction
     try:
-        G_dual.add_edges_from(
-            (p1 + 1, p2 + 1, {EDGE_ATTR: int(d * (10 ** PERCISION))}) # KaHIP only accepts integer distance
-            for p1, p2 in vor.ridge_points if (d := dist(p1 + 1, p2 + 1)) is not None
-        )
+        all_edges = [(p1 + 1, p2 + 1, {EDGE_ATTR: int(d * (10 ** PERCISION))}) # KaHIP only accepts integer distance
+            for p1, p2 in vor.ridge_points if (d := dist(p1 + 1, p2 + 1)) is not None]
     except:
         # Debug 
         print(G_dual.nodes[1])
+    
+    # Restoring the original geometry
+    if len(save_geom):
+        for n, data in G_dual.nodes(data=True):
+            data[GEOMETRY_KEY] = save_geom[n]
+        
+    G_dual.add_edges_from(
+        (p1 + 1, p2 + 1, {EDGE_ATTR: int(d * (10 ** PERCISION))})
+        for p1, p2 in vor.ridge_points if (d := dist(p1 + 1, p2 + 1)) is not None
+    )   
+    
+    if not nx.is_connected(G_dual):
+        G_dual.add_edges_from(
+            (p1, p2, data) for p1, p2, data in all_edges if not nx.has_path(G_dual, p1, p2) or nx.dijkstra_path_length(G_dual, p1, p2, EDGE_ATTR) > 1000
+        )  
     
     return G_dual
 
