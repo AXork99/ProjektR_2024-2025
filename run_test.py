@@ -56,6 +56,7 @@ def show(coloring : graphs.Coloring, ax=None):
         color=True,
         num_colors=len(coloring.clusters),
         draw='all', 
+        edgecolor='red',
         label=True if args.label is None else args.label, 
         ax=ax
     )
@@ -75,7 +76,7 @@ def log(coloring : graphs.Coloring):
 metis = graphs.MetisFormat()
 
 input_file = Path(args.input_file)
-output_file : Path = input_file.parent.parent / (input_file.name + ".part")
+output_file : Path = input_file.parent.parent / (input_file.name + f"_{args.k}.part")
 num_regions = len(os.listdir(input_file.parent)) // 3
 # num_regions = 1
 
@@ -89,20 +90,20 @@ for i in range(num_regions):
     meta_info : dict = gpd.read_file(str(input_file) + f"_{i + 1}_meta.geojson").to_dict('records')[0]
     total += meta_info[NODE_ATTR]
     
-    meta_info[NODE_ATTR] = int(meta_info[NODE_ATTR] * args.k)
-    regions.append(meta_info)
+    meta_info[NODE_ATTR] = (reduced := int(population := meta_info[NODE_ATTR] * args.k))
+    regions.append((i, meta_info, population - reduced))
     
     surplus -= meta_info[NODE_ATTR]
 
-print("totality check: ", total)
-regions.sort(key=lambda x: x[NODE_ATTR], reverse=True)
+# print("totality check: ", total)
+regions.sort(key=lambda x: x[-1], reverse=True)
 
 for i in range(surplus):
-    regions[i][NODE_ATTR] += 1
+    regions[i][1][NODE_ATTR] += 1
 
 fig, ax = plt.subplots()
 with open(output_file, 'w') as file:
-    for i, region in enumerate(regions):
+    for i, region, _ in regions:
         G = metis.read(str(input_file) + f"_{i + 1}").embed().flush()
         metis.write(G)
 
@@ -117,7 +118,7 @@ with open(output_file, 'w') as file:
         border : Polygon = region[GEOMETRY_KEY]
 
         if args.k:
-            print(f"Region \"{name}\" of scale {scale} partitions into {K} units")
+            print(f"Region {i} \"{name}\" of scale {scale} partitions into {K} units")
             part = kaffpa(
                 k=K,
                 imbalance=args.imbalance,
@@ -125,11 +126,12 @@ with open(output_file, 'w') as file:
             )
         else:
             part = read_partition()
-
-        # display(G, label=False)
+        
+        if DEBUG:
+            display(G, label=False)
 
         imbalanced = True
-        max_iterations = 3
+        max_iterations = 10
         mid = 1
         while imbalanced and max_iterations:
             coloring = graphs.Coloring(
@@ -185,7 +187,11 @@ with open(output_file, 'w') as file:
             max_iterations -= 1
             mid *= 2/3
         
-        print(f"{'PASSED' if not imbalanced else 'IMBALANCE: ' + imbalanced}")
+        print(f"{'PASSED' if not imbalanced else f"IMBALANCE: {imbalanced}"}")
+        if DEBUG:
+            show(coloring)
+            plt.show()
+        
         ax = show(coloring, ax)
         
         from src.utils import reduce_polygon
@@ -198,4 +204,4 @@ with open(output_file, 'w') as file:
             file.write(f"{data[PRIMARY_KEY]} : {int(data[GROUP_KEY])}\n")
 
 plt.show()
-fig.savefig('partition.svg', format='svg', bbox_inches='tight')
+fig.savefig(f"data/partition_{args.k}.svg", format='svg', bbox_inches='tight')

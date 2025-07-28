@@ -252,6 +252,7 @@ def make_voronoi(points = int | list[dict], seed = None, boundary: Polygon = Non
     try:
         all_edges = [(p1 + 1, p2 + 1, {EDGE_ATTR: int(d * (10 ** PERCISION))}) # KaHIP only accepts integer distance
             for p1, p2 in vor.ridge_points if (d := dist(p1 + 1, p2 + 1)) is not None]
+        G_dual.add_edges_from(all_edges)  
     except:
         # Debug 
         print(G_dual.nodes[1])
@@ -261,15 +262,15 @@ def make_voronoi(points = int | list[dict], seed = None, boundary: Polygon = Non
         for n, data in G_dual.nodes(data=True):
             data[GEOMETRY_KEY] = save_geom[n]
         
-    G_dual.add_edges_from(
-        (p1 + 1, p2 + 1, {EDGE_ATTR: int(d * (10 ** PERCISION))})
-        for p1, p2 in vor.ridge_points if (d := dist(p1 + 1, p2 + 1)) is not None
-    )   
+    # G_dual.add_edges_from(
+    #     (p1 + 1, p2 + 1, {EDGE_ATTR: int(d * (10 ** PERCISION))})
+    #     for p1, p2 in vor.ridge_points if (d := dist(p1 + 1, p2 + 1)) is not None
+    # )   
     
-    if not nx.is_connected(G_dual):
-        G_dual.add_edges_from(
-            (p1, p2, data) for p1, p2, data in all_edges if not nx.has_path(G_dual, p1, p2) or nx.dijkstra_path_length(G_dual, p1, p2, EDGE_ATTR) > 1000
-        )  
+    # if not nx.is_connected(G_dual):
+    #     G_dual.add_edges_from(
+    #         (p1, p2, data) for p1, p2, data in all_edges if not nx.has_path(G_dual, p1, p2) or (dist := nx.dijkstra_path_length(G_dual, p1, p2, EDGE_ATTR) > 4000)
+    #     )  
     
     return G_dual
 

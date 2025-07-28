@@ -11,6 +11,7 @@ def display(
     hatch: bool | list = None,
     num_colors: int = None,
     draw: str = 'all',
+    edgecolor = None,
     ax = None
 ):    
     from shapely.ops import unary_union
@@ -73,7 +74,7 @@ def display(
                     plt.Polygon(
                         bound.coords, 
                         facecolor=color or 'white',
-                        edgecolor=color or 'blue', 
+                        edgecolor=edgecolor or color or 'blue', 
                         hatch=hatch, 
                         alpha=0.3, fill=True,
                     )
