@@ -1,5 +1,5 @@
 import networkx as nx
-from shapely import MultiLineString
+from shapely import MultiLineString, Polygon
 
 from ..graphs.constants import *
 from . import plt
@@ -50,12 +50,12 @@ def display(
     if draw_voronoi:
         N = len(G.nodes)  
         
-        if color or num_colors:
+        if color:
             from ..generator import get_color_map
             color_map = get_color_map((num_colors or N) + 1, pattern=hatch)  
         
         for n, region in G.nodes(data=True):
-            if color or num_colors:
+            if color:
                 color = color_map[int(region.get(GROUP_KEY, n)) % N]
                 if color and len(color) == 2:
                     color, hatch = color
@@ -66,20 +66,18 @@ def display(
             
             from ..utils import reduce_polygon
             poly = unary_union(list(p) if isinstance(p := region[GEOMETRY_KEY], Iterable) else [p])
+            bounds = reduce_polygon(poly)
             
-            bound = poly.boundary
-            if isinstance(bound, MultiLineString):
-                bound = bound.geoms[0]
-            
-            ax.add_patch(
-                plt.Polygon(
-                    bound.coords, 
-                    facecolor=color or 'white',
-                    edgecolor=color or 'blue', 
-                    hatch=hatch, 
-                    alpha=0.3, fill=True,
+            for bound in bounds:
+                ax.add_patch(
+                    plt.Polygon(
+                        bound.coords, 
+                        facecolor=color or 'white',
+                        edgecolor=color or 'blue', 
+                        hatch=hatch, 
+                        alpha=0.3, fill=True,
+                    )
                 )
-            )
             if label != False:
                 centroid = poly.centroid
                 ax.text(

@@ -14,12 +14,20 @@ def get_tmp_path():
 PLACEHOLDER = get_tmp_path() + '/a'
 
 def reduce_polygon(poly):
-    from shapely import unary_union, MultiPolygon
+    from shapely import unary_union, MultiPolygon, Polygon
+    boundary_lines = []
     if isinstance(poly, MultiPolygon):
         poly = unary_union(poly.geoms)
     if isinstance(poly, MultiPolygon):
-        poly = max(poly.geoms, key = lambda p : p.area)
-    return poly
+        for sub in poly.geoms:
+            boundary_lines.extend(reduce_polygon(sub))
+    elif isinstance(poly, Polygon):
+        boundary_lines.append(poly.exterior)
+        for interior in poly.interiors:
+            boundary_lines.append(interior)
+    else:
+        raise ValueError("input must be polygon or multipolygon!")
+    return boundary_lines
 
 def avg(args):
     return sum(args) / len(args)

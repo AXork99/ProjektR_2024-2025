@@ -40,7 +40,7 @@ class KaHIP:
         cmd = [f"{binary_path}"]
         cmd += cmd_format(*args, **kwargs)
         
-        print(cmd)
+        # print(cmd)
         
         try:
             return subprocess.run(
@@ -48,7 +48,8 @@ class KaHIP:
                 timeout=timeout,
                 check=True,
                 capture_output=capture_output,
-                text=True
+                text=True,
+                # stdout=subprocess.DEVNULL
             )
         except subprocess.TimeoutExpired as e:
             print(f"Command timed out after {timeout} seconds")
@@ -326,8 +327,9 @@ class Coloring:
         def __gt__(self, other: 'Coloring.Cluster'):
             return self.id > other.id
     
-    def __init__(self, G: nx.Graph, initial: dict, balance = 0.05):
+    def __init__(self, G: nx.Graph, initial: dict, balance = 0.05, debug = False):
         from collections import defaultdict
+        self.debug = debug    
         
         self.G: nx.Graph = G
         self.C = nx.Graph()
@@ -427,7 +429,8 @@ class Coloring:
     def disolve(self, cluster: 'Coloring.Cluster'):
         from ..utils import pqueue
         
-        print(f"Disolving ({cluster}) into neighbors: {set(self.C.neighbors(cluster))}")
+        if self.debug:
+            print(f"Disolving ({cluster}) into neighbors: {set(self.C.neighbors(cluster))}")
         
         g = {n : self.get_cluster(n).population for n in cluster.outer_perimeter()}
         queue = pqueue(
@@ -503,7 +506,7 @@ class Coloring:
                     elif self.get_cluster(n) == c2:
                         edge_gain += self.edge_attr(n2, n)
                 
-                if (n1 == 64 or n2 == 64):
+                if ((n1 == 64 or n2 == 64) and self.debug):
                     print(f"EDGE_GAIN {n1} {n2}:", edge_gain)
                     print(f"NODE_GAIN :", population_diff_before - population_diff_after)
                     print(f"COST:", cost_func(population_diff_before)(0) - cost_func(population_diff_after)(edge_gain))
@@ -528,10 +531,12 @@ class Coloring:
         
         c = self.tournament.priority[unordered(c1, c2)]
         if c <= 0:
-            print("UNABLE TO FIND IMPROVEMENTS!")
+            if self.debug:
+                print("UNABLE TO FIND IMPROVEMENTS!")
             return 1
         
-        print(f"Moved {n2} from {c2} into {c1} COST: {c}")
+        if self.debug:
+            print(f"Moved {n2} from {c2} into {c1} COST: {c}")
         c1.take(n2, c2, force = False)
         
         for c in c1, c2:

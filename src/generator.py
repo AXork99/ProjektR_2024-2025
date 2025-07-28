@@ -150,7 +150,7 @@ def make_voronoi(points = int | list[dict], seed = None, boundary: Polygon = Non
     
     from .utils import make_convex, get_midpoint
     from scipy.spatial import Voronoi
-    from shapely.geometry import box, Polygon, Point
+    from shapely.geometry import box, Polygon, Point, MultiPolygon
     from collections import defaultdict
     
     if isinstance(points, int):
@@ -235,8 +235,8 @@ def make_voronoi(points = int | list[dict], seed = None, boundary: Polygon = Non
         if not p1 or not p2:
             return None
         
-        poly1 : Polygon = G_dual.nodes[p1][GEOMETRY_KEY]
-        poly2 : Polygon = G_dual.nodes[p2][GEOMETRY_KEY]
+        poly1 : MultiPolygon = G_dual.nodes[p1][GEOMETRY_KEY]
+        poly2 : MultiPolygon = G_dual.nodes[p2][GEOMETRY_KEY]
         
         intersection = poly1.boundary.intersection(poly2.boundary)
         

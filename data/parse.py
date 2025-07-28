@@ -13,20 +13,9 @@ metis = MetisFormat()
 
 dir = "../Nikola/spatial files"
 voronoi_data : gpd.GeoDataFrame = gpd.read_file(f"{dir}/country_Voronoi_clip.geojson")
-from shapely import MultiPolygon, Polygon
-    
-voronoi_data[GEOMETRY_KEY] = voronoi_data[GEOMETRY_KEY].apply(reduce_polygon)
-
-# "properties": {
-#     "Rbr IJ": 8,
-#     "Naziv izborne jedinice": "VIII. IZBORNA JEDINICA",
-#     "ID_u_zupaniji": 145,
+from shapely import MultiPolygon, Polygon, unary_union
 
 banned = {"ID_u_zupaniji", "Rbr IJ", "Naziv izborne jedinice", "Rbr.županije", "Županija"}
-
-#     "Latitude": 45.4523108,
-#     "Longitude": 13.5390361,
-#     "Ukupno birača": 928,
 
 common = {
     "Latitude" : LATITUDE,
@@ -35,34 +24,17 @@ common = {
     "geometry" : GEOMETRY_KEY,
 }
 
-#     "Rbr.županije": 18,
-#     "Županija": "ISTARSKA ŽUPANIJA",
-
 ZUP_id = "Rbr.županije"
 ZUP_map = {
     "Županija" : "name",   
     **common
 }
 
-#     "ID_global": 5126,
-
 BM_map = {
     "ID_global" : PRIMARY_KEY,
     "" : "data",
     **common
 }
-
-#     "Oznaka Gr/Op/Dr": "grad",
-#     "Grad/općina/država": "UMAG - UMAGO",
-#     "Rbr BM": 6,
-#     "Naziv BM": "MURINE-MORNO",
-#     "Lokacija BM": "PODRUČNA ŠKOLA MURINE",
-#     "Adresa BM": "PRVA ULICA 3",
-#     "Glasovalo birača": 515,
-#     "Glasovalo birača (po listićima)": 514,
-#     "Važeći listići": 507,
-#     "Nevažeći listići": 7,
-# },
 
 zups = defaultdict(lambda : {
     "meta" : {},
@@ -89,7 +61,7 @@ for id, row in voronoi_data.iterrows():
                 if name and name != val:
                     raise ValueError("Same ID %d different names! : %s and %s".format(zup_id, name, val))
                 zups[zup_id]["meta"][ZUP_map[key]] = val
-            elif isinstance(val, Polygon):
+            elif isinstance(val, Polygon) or isinstance(val, MultiPolygon):
                 poly : list = zups[zup_id]["meta"].get(ZUP_map[key], [])
                 poly.append(val)
                 zups[zup_id]["meta"][ZUP_map[key]] = poly
@@ -106,7 +78,7 @@ for id, zup in zups.items():
         data = gpd.GeoDataFrame(zup["BMs"], crs="EPSG:3765")
         data.to_file(f'parsed/zupanija_{id}.geojson', driver='GeoJSON')
         
-        zup["meta"][GEOMETRY_KEY] = [reduce_polygon(MultiPolygon(zup["meta"][GEOMETRY_KEY]))]
+        zup["meta"][GEOMETRY_KEY] = [unary_union(zup["meta"][GEOMETRY_KEY])]
         
         metadata = gpd.GeoDataFrame(zup["meta"], crs="EPSG:3765")
         metadata[NODE_ATTR] = metadata[NODE_ATTR].apply(lambda x: x / total_population)
