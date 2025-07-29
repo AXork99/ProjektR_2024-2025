@@ -487,38 +487,45 @@ class Coloring:
             if not self.C.has_edge(*edge):
                 raise ValueError(f"EDGE {edge} not in Graph!")
             
-            c1, c2 = ordered(edge)
+            c1, c2 = edge
             equilibrium = (c1.population + c2.population) / 2
             
-            def edge_weight(edge):
-                n1, n2 = edge
-                if c2.is_separated_by(n2):
+            def node_weight(n):
+                c : Coloring.Cluster = self.get_cluster(n)
+                other : Coloring.Cluster = c1 if c == c2 else c2
+                
+                if c.is_separated_by(n):
                     return -1
                 
-                population_diff_before = abs(equilibrium - c1.population) * 2
-                population_diff_after = abs(equilibrium - c1.population - self.get_node_attr(n2)) * 2
+                population_diff_before = abs(equilibrium - c.population) * 2
+                population_diff_after = abs(equilibrium - (c.population - self.get_node_attr(n))) * 2
                 
                 edge_gain = 0
-                for n in self.G.neighbors(n2):
+                for ni in self.G.neighbors(n):
                     # print(n, end=" ")
-                    if self.get_cluster(n) == c1:
-                        edge_gain -= self.edge_attr(n2, n)
-                    elif self.get_cluster(n) == c2:
-                        edge_gain += self.edge_attr(n2, n)
+                    if self.get_cluster(ni) == other:
+                        edge_gain -= self.edge_attr(n, ni)
+                    elif self.get_cluster(ni) == c:
+                        edge_gain += self.edge_attr(n, ni)
                 
-                if ((n1 == 64 or n2 == 64) and self.debug):
-                    print(f"EDGE_GAIN {n1} {n2}:", edge_gain)
-                    print(f"NODE_GAIN :", population_diff_before - population_diff_after)
-                    print(f"COST:", cost_func(population_diff_before)(0) - cost_func(population_diff_after)(edge_gain))
+                # if (self.debug):
+                #     print(f"EDGE_GAIN {n} {other}:", edge_gain)
+                #     print(f"NODE_GAIN :", population_diff_before - population_diff_after)
+                #     print(f"COST:", cost_func(population_diff_before)(0) - cost_func(population_diff_after)(edge_gain))
 
                 return cost_func(population_diff_before)(0) - cost_func(population_diff_after)(edge_gain)
 
-            E, P = max({(e, edge_weight(e)) for e in c1.get_perimeter(c2)}, key=lambda e: e[1], default=(None, -1))
+            def nodes(c1, c2):
+                for n1, n2 in c1.get_perimeter(c2):
+                    yield n1
+                    yield n2
             
-            if E is None:
-                raise ValueError(f"EDGE {edge} is empty!!")
+            N, P = max({(n, node_weight(n)) for n in nodes(c1, c2)}, key=lambda e: e[1], default=(None, -1))
             
-            self.C.edges[edge][EDGE_ATTR] = E
+            # # if E is None:
+            #     raise ValueError(f"EDGE {edge} is empty!!")
+            
+            self.C.edges[edge][EDGE_ATTR] = N
             return P
         
         if not self.tournament:
@@ -526,22 +533,24 @@ class Coloring:
             for edge in self.C.edges:
                 self.tournament.add(unordered(*edge))
         
-        c1, c2 = ordered(self.tournament.top())
-        n1, n2 = self.edge_attr(c1, c2)
+        e = self.tournament.top()
+        n = self.edge_attr(*e)
         
-        c = self.tournament.priority[unordered(c1, c2)]
-        if c <= 0:
+        c1, c2 = (e[1], e[0]) if self.get_cluster(n) == e[0] else e
+        p = self.tournament.priority[unordered(*e)]
+        
+        if p <= 0:
             if self.debug:
                 print("UNABLE TO FIND IMPROVEMENTS!")
             return 1
         
         if self.debug:
-            print(f"Moved {n2} from {c2} into {c1} COST: {c}")
-        c1.take(n2, c2, force = False)
+            print(f"Moved {n} from {c2} into {c1} COST: {p}")
+        c1.take(n, c2, force = False)
         
         for c in c1, c2:
-            for n in self.C.neighbors(c):
-                self.tournament.update(unordered(c, n))
+            for ci in self.C.neighbors(c):
+                self.tournament.update(unordered(c, ci))
         
         self.update_attrs()
         return 0

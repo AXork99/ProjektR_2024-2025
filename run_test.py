@@ -65,7 +65,7 @@ def show(coloring : graphs.Coloring, ax=None):
 
 def log(coloring : graphs.Coloring):
     maxerr = max(coloring.get_imbalance(), key=lambda x: x[1], default=None)
-    if not DEBUG:
+    if DEBUG:
         print()
         print(f"ERR LOG")
         print()
@@ -104,13 +104,17 @@ for i in range(surplus):
 fig, ax = plt.subplots()
 with open(output_file, 'w') as file:
     for i, region, _ in regions:
+        j = 1 - 1
         G = metis.read(str(input_file) + f"_{i + 1}").embed().flush()
         metis.write(G)
 
         import run_diagnostic
-        get_dimensions = importlib.reload(run_diagnostic).get_dimensions
-        scale = max(get_dimensions())
-
+        from src.utils import avg
+        info = importlib.reload(run_diagnostic).edges
+        scale, = info([avg], EDGE_ATTR)
+        print("expected edge: ", scale)
+        scale *= 10
+        
         K = region[NODE_ATTR]
         name = region["name"]
         
@@ -127,7 +131,7 @@ with open(output_file, 'w') as file:
         else:
             part = read_partition()
         
-        if DEBUG:
+        if DEBUG and i == j:
             display(G, label=False)
 
         imbalanced = True
@@ -151,7 +155,7 @@ with open(output_file, 'w') as file:
 
             from src.utils.functions import *
             
-            def cost(n=1.5, r=1, s=2 / (scale / maxx), norm=2, mid=mid):
+            def cost(n=1.5, r=1, s=5 / (scale / maxx), norm=1, mid=mid):
                 return cost_func(
                     x = compose(offset(POW(n)), RELU(maxx/2 * mid)), 
                     y = extend_odd(ROOT(r)),
@@ -164,14 +168,14 @@ with open(output_file, 'w') as file:
             # plot2d(cost(0.01)(err/2), minx=-maxy, maxx=maxy)
             # plot2d(cost(0.01)(err*3/2), minx=-maxy, maxx=maxy)
 
-            if DEBUG:
-                plot3d(
-                    cost(), 
-                    name="cost function", 
-                    maxx=maxx, 
-                    maxy=maxy,
-                    miny=-maxy
-                )
+            # if DEBUG:
+            #     plot3d(
+            #         cost(), 
+            #         name="cost function", 
+            #         maxx=maxx, 
+            #         maxy=maxy,
+            #         miny=-maxy
+            #     )
 
             if K != 1:
                 for _ in range(100):
@@ -179,6 +183,10 @@ with open(output_file, 'w') as file:
                         break
                     # log(coloring)
                     # print("iteretion:", i)
+                    if DEBUG and _ % 10 == 0 and i == j:
+                        log(coloring)
+                        show(coloring)
+                        plt.show()
                     for c1, c2 in coloring.tournament.priority:
                         if not coloring.C.has_edge(c1, c2):
                             raise KeyError(f"Tournament contains nonexistent edge {c1, c2}")
@@ -188,7 +196,7 @@ with open(output_file, 'w') as file:
             mid *= 2/3
         
         print(f"{'PASSED' if not imbalanced else f"IMBALANCE: {imbalanced}"}")
-        if DEBUG:
+        if DEBUG and i == j:
             show(coloring)
             plt.show()
         
